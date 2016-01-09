@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Elementarz</string>
     <string name="action_settings">Settings</string>
+    <string name="dotsLbl">Dots</string>
+    <string name="beamsLbl">Beams</string>
+    <string name="wordsLbl">Words</string>
+    <string name="title_activity_dots">DotsActivity</string>
+    <string name="title_activity_beams">BeamsActivity</string>
+    <string name="title_activity_words">WordsActivity</string>
 </resources>

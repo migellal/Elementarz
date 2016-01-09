@@ -1,5 +1,6 @@
 package e_lementarz.org.elementarz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,5 +40,22 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickMenu(View view) {
+        Intent intent = null;
+        switch (view.getId())
+        {
+            case R.id.dotsBtn:
+                intent = new Intent(MenuActivity.this, DotsActivity.class);
+                break;
+            case R.id.beamsBtn:
+                intent = new Intent(MenuActivity.this, BeamsActivity.class);
+                break;
+            case R.id.wordsBtn:
+                intent = new Intent(MenuActivity.this, WordsActivity.class);
+                break;
+        }
+        startActivity(intent);
     }
 }

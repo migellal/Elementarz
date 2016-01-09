@@ -13,4 +13,33 @@
     tools:showIn="@layout/activity_menu">
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dotsLbl"
+        android:id="@+id/dotsBtn"
+        android:onClick="onClickMenu"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/beamsLbl"
+        android:id="@+id/beamsBtn"
+        android:onClick="onClickMenu"
+        android:layout_below="@+id/dotsBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/dotsBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wordsLbl"
+        android:id="@+id/wordsBtn"
+        android:onClick="onClickMenu"
+        android:layout_below="@+id/beamsBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/beamsBtn" />
 </RelativeLayout>
