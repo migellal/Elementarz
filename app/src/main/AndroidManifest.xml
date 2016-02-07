@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="org.e_lementarz.elementarz.DotsActivity"
             android:label="@string/title_activity_dots"
