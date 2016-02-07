@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "e_lementarz.org.elementarz"
+        applicationId "org.e_lementarz.elementarz"
         minSdkVersion 19
         targetSdkVersion 23
         versionCode 1
