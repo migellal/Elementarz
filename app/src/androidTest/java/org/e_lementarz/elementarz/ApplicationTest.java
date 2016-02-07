@@ -1,4 +1,4 @@
-package e_lementarz.org.elementarz;
+package org.e_lementarz.elementarz;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
