@@ -44,11 +44,8 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = null;
         switch (view.getId())
         {
-            case R.id.dotsBtn:
-                intent = new Intent(MenuActivity.this, DotsActivity.class);
-                break;
-            case R.id.beamsBtn:
-                intent = new Intent(MenuActivity.this, BeamsActivity.class);
+            case R.id.numbersBtn:
+                intent = new Intent(MenuActivity.this, NumbersActivity.class);
                 break;
             case R.id.wordsBtn:
                 intent = new Intent(MenuActivity.this, WordsActivity.class);
