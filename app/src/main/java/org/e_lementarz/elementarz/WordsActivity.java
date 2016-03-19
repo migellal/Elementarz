@@ -24,6 +24,7 @@ public class WordsActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

@@ -5,4 +5,7 @@
     <string name="wordsLbl">Words</string>
     <string name="title_activity_numbers">NumbersActivity</string>
     <string name="title_activity_words">WordsActivity</string>
+    <string name="title_activity_numbers_bricks">NumbersBricksActivity</string>
+    <string name="minusSgn">-</string>
+    <string name="currentValueLbl">0</string>
 </resources>
