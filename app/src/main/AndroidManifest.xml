@@ -8,6 +8,10 @@
         android:minSdkVersion="19"
         android:targetSdkVersion="23" />
 
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MenuActivity"
+            android:name=".activities.MenuActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -25,30 +29,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".WordsActivity"
+            android:name=".activities.WordsActivity"
             android:label="@string/title_activity_words"
-            android:parentActivityName=".MenuActivity"
+            android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.e_lementarz.elementarz.MenuActivity" />
+                android:value=".activities.MenuActivity" />
         </activity>
         <activity
-            android:name=".NumbersActivity"
+            android:name=".activities.NumbersActivity"
             android:label="@string/title_activity_numbers"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.e_lementarz.elementarz.MenuActivity" />
+                android:value=".activities.MenuActivity" />
         </activity>
         <activity
-            android:name=".NumbersBricksActivity"
+            android:name=".activities.NumbersBricksActivity"
             android:label="@string/title_activity_numbers_bricks"
-            android:parentActivityName=".MenuActivity"
+            android:parentActivityName=".activities.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.e_lementarz.elementarz.MenuActivity" />
+                android:value="org.e_lementarz.elementarz.activities.NumbersActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NumbersCompareActivity"
+            android:label="@string/title_activity_numbers_compare"
+            android:parentActivityName=".activities.NumbersActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.NumbersActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NumbersOrderActivity"
+            android:label="@string/title_activity_numbers_order"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.NumbersActivity" />
         </activity>
     </application>
 

@@ -1,4 +1,4 @@
-package org.e_lementarz.elementarz;
+package org.e_lementarz.elementarz.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +8,16 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MenuActivity extends AppCompatActivity {
+import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.common.ElementarzActivity;
+
+public class MenuActivity extends ElementarzActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        setNaviBarColor();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }

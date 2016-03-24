@@ -8,4 +8,12 @@
     <string name="title_activity_numbers_bricks">NumbersBricksActivity</string>
     <string name="minusSgn">-</string>
     <string name="currentValueLbl">0</string>
+    <string name="numbersBricksLbl">Bricks</string>
+    <string name="numbersCompareLbl">Compare</string>
+    <string name="title_activity_numbers_compare">NumbersCompareActivity</string>
+    <string name="I">I</string>
+    <string name="line">------------------------------------------------------------------------------------------------------------------------</string>
+    <string name="plusSgn">+</string>
+    <string name="order">Order</string>
+    <string name="title_activity_numbers_order">NumbersOrderActivity</string>
 </resources>

@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <LinearLayout android:id="@+id/container"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:orientation="vertical">
+    <View
+        android:id="@+id/brick10V"
+        style="@style/BricksStyle" />
 
-        <View
-            android:id="@+id/brick10V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick9V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick8V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick7V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick6V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick5V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick4V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick3V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick2V"
-            style="@style/BricksStyle"/>
-        <View
-            android:id="@+id/brick1V"
-            style="@style/BricksStyle"/>
+    <View
+        android:id="@+id/brick9V"
+        style="@style/BricksStyle" />
 
-     </LinearLayout>
+    <View
+        android:id="@+id/brick8V"
+        style="@style/BricksStyle" />
 
+    <View
+        android:id="@+id/brick7V"
+        style="@style/BricksStyle" />
 
-</FrameLayout>
+    <View
+        android:id="@+id/brick6V"
+        style="@style/BricksStyle" />
+
+    <View
+        android:id="@+id/brick5V"
+        style="@style/BricksStyle" />
+
+    <View
+        android:id="@+id/brick4V"
+        style="@style/BricksStyle" />
+
+    <View
+        android:id="@+id/brick3V"
+        style="@style/BricksStyle" />
+
+    <View
+        android:id="@+id/brick2V"
+        style="@style/BricksStyle" />
+
+    <View
+        android:id="@+id/brick1V"
+        style="@style/BricksStyle" />
+
+</LinearLayout>

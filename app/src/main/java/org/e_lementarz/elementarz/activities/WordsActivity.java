@@ -1,4 +1,4 @@
-package org.e_lementarz.elementarz;
+package org.e_lementarz.elementarz.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,7 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class WordsActivity extends AppCompatActivity {
+import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.common.ElementarzActivity;
+
+public class WordsActivity extends ElementarzActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +18,7 @@ public class WordsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_words);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        setNaviBarColor();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
