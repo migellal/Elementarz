@@ -41,9 +41,9 @@ public class NumbersCompareActivity extends ElementarzActivity {
             counterLeft = savedInstanceState.getInt(Const.LEFT_COUNTER);
             counterRight = savedInstanceState.getInt(Const.RIGHT_COUNTER);
             if (counterLeft != 0)
-                stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray);
+                stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null, true);
             if (counterRight != 0)
-                stackBricksViewGroup.refreshView(counterRight, bricksRightArray);
+                stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null, true);
         }
     }
 
@@ -59,25 +59,25 @@ public class NumbersCompareActivity extends ElementarzActivity {
             case R.id.plusLeftBtn:
                 if (counterLeft < 10) {
                     counterLeft++;
-                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray);
+                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null, true);
                 }
                 break;
             case R.id.minusLeftBtn:
                 if (counterLeft > 0) {
                     counterLeft--;
-                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray);
+                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null, true);
                 }
                 break;
             case R.id.plusRightBtn:
                 if (counterRight < 10) {
                     counterRight++;
-                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray);
+                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null, true);
                 }
                 break;
             case R.id.minusRightBtn:
                 if (counterRight > 0) {
                     counterRight--;
-                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray);
+                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null, true);
                 }
                 break;
         }

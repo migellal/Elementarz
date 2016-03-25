@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,57 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="org.e_lementarz.elementarz.activities.NumbersOrderActivity"
-    tools:showIn="@layout/activity_numbers_order">
+    tools:showIn="@layout/activity_numbers_order"
+    android:baselineAligned="false">
 
-</RelativeLayout>
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack1" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack2" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack3" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack4" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack5" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack6" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack7" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack8" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack9" />
+
+    <include
+        layout="@layout/stack_bricks_with_tv_layout"
+        style="@style/OrderElementStyle"
+        android:id="@+id/includeOrderStack10" />
+
+</LinearLayout>

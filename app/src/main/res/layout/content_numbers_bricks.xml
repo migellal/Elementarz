@@ -20,23 +20,13 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/currentValueLbl"
-        android:id="@+id/currentValueTV"
-        android:layout_marginTop="15dp"
-        android:layout_alignTop="@+id/minusBtn"
-        android:layout_centerHorizontal="true" />
-
     <include android:id="@+id/stack_bricks"
-        android:layout_above="@+id/currentValueTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
-        layout="@layout/stack_bricks_layout"/>
+        layout="@layout/stack_bricks_with_tv_layout"/>
 
 
 
