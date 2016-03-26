@@ -41,7 +41,7 @@ public class NumbersBricksActivity extends ElementarzActivity {
             public void onClick(View view) {
                 if(counter<10) {
                     counter++;
-                    stackBricksViewGroup.refreshView(counter, bricksArray, animPut, true);
+                    stackBricksViewGroup.refreshView(counter, bricksArray, animPut);
                     refreshText();
                 }
             }
@@ -52,7 +52,7 @@ public class NumbersBricksActivity extends ElementarzActivity {
             public void onClick(View v) {
                 if (counter > 0) {
                     counter--;
-                    stackBricksViewGroup.refreshView(counter, bricksArray, animPut, true);
+                    stackBricksViewGroup.refreshView(counter, bricksArray, animPut);
                     refreshText();
                 }
             }
@@ -62,7 +62,7 @@ public class NumbersBricksActivity extends ElementarzActivity {
         if(savedInstanceState!=null) {
             counter = savedInstanceState.getInt(Const.COUNTER);
             if(counter!=0)
-                stackBricksViewGroup.refreshView(counter, bricksArray, animPut, true);
+                stackBricksViewGroup.refreshView(counter, bricksArray, animPut);
         }
     }
 

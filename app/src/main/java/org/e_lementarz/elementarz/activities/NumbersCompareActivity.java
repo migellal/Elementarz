@@ -41,9 +41,9 @@ public class NumbersCompareActivity extends ElementarzActivity {
             counterLeft = savedInstanceState.getInt(Const.LEFT_COUNTER);
             counterRight = savedInstanceState.getInt(Const.RIGHT_COUNTER);
             if (counterLeft != 0)
-                stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null, true);
+                stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null);
             if (counterRight != 0)
-                stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null, true);
+                stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null);
         }
     }
 
@@ -59,25 +59,25 @@ public class NumbersCompareActivity extends ElementarzActivity {
             case R.id.plusLeftBtn:
                 if (counterLeft < 10) {
                     counterLeft++;
-                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null, true);
+                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null);
                 }
                 break;
             case R.id.minusLeftBtn:
                 if (counterLeft > 0) {
                     counterLeft--;
-                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null, true);
+                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null);
                 }
                 break;
             case R.id.plusRightBtn:
                 if (counterRight < 10) {
                     counterRight++;
-                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null, true);
+                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null);
                 }
                 break;
             case R.id.minusRightBtn:
                 if (counterRight > 0) {
                     counterRight--;
-                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null, true);
+                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null);
                 }
                 break;
         }
