@@ -3,8 +3,6 @@ package org.e_lementarz.elementarz.activities;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
@@ -12,7 +10,8 @@ import android.widget.TextView;
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.common.Const;
 import org.e_lementarz.elementarz.common.ElementarzActivity;
-import org.e_lementarz.elementarz.common.StackBricksViewGroup;
+import org.e_lementarz.elementarz.common.MorphingAnimation;
+import org.e_lementarz.elementarz.common.StackBricks;
 
 public class NumbersCompareActivity extends ElementarzActivity {
 
@@ -21,7 +20,9 @@ public class NumbersCompareActivity extends ElementarzActivity {
     private int counterRight = 0;
     private View[] bricksLeftArray;
     private View[] bricksRightArray;
-    private StackBricksViewGroup stackBricksViewGroup;
+    private StackBricks stackBricksViewGroup;
+    private MorphingAnimation morphAnim;
+    private boolean firstChange = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +33,30 @@ public class NumbersCompareActivity extends ElementarzActivity {
         setNaviBarColor();
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        stackBricksViewGroup = new StackBricksViewGroup();
+        stackBricksViewGroup = new StackBricks();
         View stackBricksContainerLeft = findViewById(R.id.includeLeftStack);
         View stackBricksContainerRight = findViewById(R.id.includeRightStack);
         bricksLeftArray = stackBricksViewGroup.getBricksStack(stackBricksContainerLeft);
         bricksRightArray = stackBricksViewGroup.getBricksStack(stackBricksContainerRight);
+
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.checkFAB);
+        assert fab != null;
+        morphAnim = new MorphingAnimation(getApplicationContext(), fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO next activity
+            }
+        });
+
+
         if (savedInstanceState != null) {
             counterLeft = savedInstanceState.getInt(Const.LEFT_COUNTER);
             counterRight = savedInstanceState.getInt(Const.RIGHT_COUNTER);
             if (counterLeft != 0)
-                stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null);
+                stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, getApplicationContext());
             if (counterRight != 0)
-                stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null);
+                stackBricksViewGroup.refreshView(counterRight, bricksRightArray, getApplicationContext());
         }
     }
 
@@ -59,27 +72,35 @@ public class NumbersCompareActivity extends ElementarzActivity {
             case R.id.plusLeftBtn:
                 if (counterLeft < 10) {
                     counterLeft++;
-                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null);
+                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, getApplicationContext());
                 }
                 break;
             case R.id.minusLeftBtn:
                 if (counterLeft > 0) {
                     counterLeft--;
-                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, null);
+                    stackBricksViewGroup.refreshView(counterLeft, bricksLeftArray, getApplicationContext());
                 }
                 break;
             case R.id.plusRightBtn:
                 if (counterRight < 10) {
                     counterRight++;
-                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null);
+                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, getApplicationContext());
                 }
                 break;
             case R.id.minusRightBtn:
                 if (counterRight > 0) {
                     counterRight--;
-                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, null);
+                    stackBricksViewGroup.refreshView(counterRight, bricksRightArray, getApplicationContext());
                 }
                 break;
+        }
+        if(counterLeft!=counterRight&&firstChange) {
+            morphAnim.animFab(R.drawable.ic_done_to_undone, false);
+            firstChange=false;
+        }
+        if(counterLeft==counterRight) {
+            morphAnim.animFab(R.drawable.ic_undone_to_done, true);
+            firstChange=true;
         }
     }
 }

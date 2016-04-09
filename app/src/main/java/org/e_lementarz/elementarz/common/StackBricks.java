@@ -1,16 +1,21 @@
 package org.e_lementarz.elementarz.common;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 
 import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.util.ReverseInterpolator;
 
 /**
  * Created by micha on 21.03.2016.
  */
-public class StackBricksViewGroup {
+public class StackBricks {
+
+    private Animation animPut;
 
     public View[] getBricksStack(View container) {
         View bricks1 = container.findViewById(R.id.brick1V);
@@ -61,28 +66,32 @@ public class StackBricksViewGroup {
     }
 
 
-    public void refreshView(int counter, View[] bricksArray, Animation animation) {
+    public void refreshView(int counter, View[] bricksArray, Context context) {
+        animPut = AnimationUtils.loadAnimation(context,
+                R.anim.put_anim);
         if (counter > 0 && bricksArray[counter].getVisibility() == View.INVISIBLE) {
             if (counter > 1)
                 bricksArray[counter - 1].clearAnimation();
             bricksArray[counter].setVisibility(View.VISIBLE);
-            animation.setInterpolator(new BounceInterpolator());
-            bricksArray[counter].startAnimation(animation);
+            animPut.setInterpolator(new BounceInterpolator());
+            bricksArray[counter].startAnimation(animPut);
         } else {
             if (counter < 9)
                 bricksArray[counter + 2].clearAnimation();
             bricksArray[counter + 1].setVisibility(View.INVISIBLE);
             ReverseInterpolator reverseInterpolator = new ReverseInterpolator();
-            animation.setInterpolator(reverseInterpolator);
-            bricksArray[counter + 1].startAnimation(animation);
+            animPut.setInterpolator(reverseInterpolator);
+            bricksArray[counter + 1].startAnimation(animPut);
         }
 
     }
 
-    public void refreshAllViewsOnlyAdding(int counter, View[] bricksArray, Animation animation) {
-        animation.setInterpolator(new BounceInterpolator());
+    public void refreshAllViewsOnlyAdding(int counter, View[] bricksArray, Context context) {
+        animPut = AnimationUtils.loadAnimation(context,
+                R.anim.put_anim);
+        animPut.setInterpolator(new BounceInterpolator());
         for (int i = 1; i <= counter; i++) {
-            bricksArray[i].startAnimation(animation);
+            bricksArray[i].startAnimation(animPut);
         }
     }
 }

@@ -17,10 +17,9 @@
         <path
             android:name="v"
             android:fillColor="#FFFFFF"
-            android:pathData="@string/path_line"
+            android:pathData="@string/path_done"
 
             app:vc_fillColor="#FFFFFF"
-            app:vc_pathData="@string/path_line" />
+            app:vc_pathData="@string/path_done" />
     </group>
 </vector>
-    <!-- From: file:/Users/wnafee/code/vector-compat/library/src/main/res/drawable/ic_arrow_vector.xml -->

@@ -1,4 +1,4 @@
-package org.e_lementarz.elementarz.common;
+package org.e_lementarz.elementarz.util;
 
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
@@ -6,7 +6,7 @@ import android.view.animation.LinearInterpolator;
 /**
  * Created by micha on 25.03.2016.
  */
-class ReverseInterpolator implements Interpolator{
+public class ReverseInterpolator implements Interpolator{
 
     private Interpolator interpolator;
 

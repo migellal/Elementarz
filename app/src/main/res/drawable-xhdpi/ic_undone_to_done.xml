@@ -8,6 +8,6 @@
 
     <target
         android:name="v"
-        android:animation="@anim/line_to_done_path" />
+        android:animation="@anim/undone_to_done_path" />
 </animated-vector>
     <!-- From: file:/Users/wnafee/code/vector-compat/library/src/main/res/drawable/ic_arrow_to_drawer.xml -->

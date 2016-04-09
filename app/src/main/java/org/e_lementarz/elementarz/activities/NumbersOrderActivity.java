@@ -1,26 +1,20 @@
 package org.e_lementarz.elementarz.activities;
 
-import android.graphics.drawable.Animatable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-
-import com.wnafee.vector.compat.ResourcesCompat;
 
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.common.ElementarzActivity;
-import org.e_lementarz.elementarz.common.StackBricksViewGroup;
+import org.e_lementarz.elementarz.common.MorphingAnimation;
+import org.e_lementarz.elementarz.common.StackBricks;
 
 public class NumbersOrderActivity extends ElementarzActivity {
 
     private int counter = 0;
     private View[] bricksStacks;
     private View[] bricksArray;
-    private Animation animPut, animMorph;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +22,7 @@ public class NumbersOrderActivity extends ElementarzActivity {
         setContentView(R.layout.activity_numbers_order);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        animPut = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.put_anim);
-        final StackBricksViewGroup stackBricksViewGroup = new StackBricksViewGroup();
+        final StackBricks stackBricksViewGroup = new StackBricks();
         bricksStacks = stackBricksViewGroup.getContainers(this);
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
@@ -40,13 +32,10 @@ public class NumbersOrderActivity extends ElementarzActivity {
                 if(counter<10) {
                     counter++;
                     bricksArray = stackBricksViewGroup.getBricksStack(bricksStacks[counter], counter);
-                    stackBricksViewGroup.refreshAllViewsOnlyAdding(counter, bricksArray, animPut);
+                    stackBricksViewGroup.refreshAllViewsOnlyAdding(counter, bricksArray, getApplicationContext());
                     if(counter==10) {
-                        //fab.setImageResource(R.drawable.ic_done_white_48dp);
-                        final Animatable icon = (Animatable) ResourcesCompat.getDrawable(getApplicationContext(), R.drawable.ic_line_to_done);
-                        fab.setImageDrawable((Drawable)icon);
-                        icon.start();
-                        fab.setBackgroundTintList(getResources().getColorStateList(R.color.colorSuccessGreen));
+                        MorphingAnimation morphAnim = new MorphingAnimation(getApplicationContext(), fab);
+                        morphAnim.animFab(R.drawable.ic_line_to_done);
                     }
                 }
             }
