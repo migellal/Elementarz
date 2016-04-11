@@ -33,18 +33,7 @@ public class StackBricks {
     }
 
     public View[] getBricksStack(View container, int height) {
-        View bricks1 = container.findViewById(R.id.brick1V);
-        View bricks2 = container.findViewById(R.id.brick2V);
-        View bricks3 = container.findViewById(R.id.brick3V);
-        View bricks4 = container.findViewById(R.id.brick4V);
-        View bricks5 = container.findViewById(R.id.brick5V);
-        View bricks6 = container.findViewById(R.id.brick6V);
-        View bricks7 = container.findViewById(R.id.brick7V);
-        View bricks8 = container.findViewById(R.id.brick8V);
-        View bricks9 = container.findViewById(R.id.brick9V);
-        View bricks10 = container.findViewById(R.id.brick10V);
-        View[] v = new View[]{null, bricks1, bricks2, bricks3, bricks4, bricks5, bricks6,
-                bricks7, bricks8, bricks9, bricks10};
+        View[] v = getBricksStack(container);
         for (int i = 1; i < height; i++)
             v[i].setVisibility(View.VISIBLE);
         return v;
@@ -63,6 +52,27 @@ public class StackBricks {
         final View viewStack10 = rootContainer.findViewById(R.id.includeOrderStack10);
         return new View[]{null, viewStack1, viewStack2, viewStack3, viewStack4, viewStack5,
                 viewStack6, viewStack7, viewStack8, viewStack9, viewStack10};
+    }
+
+    public View[] refreshStack(View bricks[]) {
+        for (int i = 1; i < bricks.length; i++) {
+            bricks[i].setVisibility(View.INVISIBLE);
+        }
+        return bricks;
+    }
+
+    public View[] refreshStack(View bricks[], int height) {
+        for (int i = 1; i < height; i++) {
+            bricks[i].setVisibility(View.VISIBLE);
+        }
+        if (height == 0) {
+            bricks = refreshStack(bricks);
+        } else {
+            for (; height <= 10; height++) {
+                bricks[height].setVisibility(View.INVISIBLE);
+            }
+        }
+        return bricks;
     }
 
 

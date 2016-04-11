@@ -12,11 +12,6 @@ import org.e_lementarz.elementarz.R;
  */
 public abstract class ElementarzActivity extends AppCompatActivity {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-    }
-
     public void setNaviBarColor()
     {
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP)

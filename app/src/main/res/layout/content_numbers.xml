@@ -39,4 +39,22 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/numbersBricksBtn" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/compareCheck"
+        android:id="@+id/numbersCompareCheckBtn"
+        android:onClick="onClickNumbers"
+        android:layout_alignTop="@+id/numbersCompareBtn"
+        android:layout_toEndOf="@+id/numbersCompareBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adding_bricks"
+        android:id="@+id/numbersAddingBricksBtn"
+        android:onClick="onClickNumbers"
+        android:layout_below="@+id/numbersBricksBtn"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.NumbersBricksAdding"
+    tools:showIn="@layout/activity_numbers_bricks_adding"
+    android:id="@+id/mRelLay">
+
+    <include
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        layout="@layout/stack_bricks_with_tv_layout"
+        android:layout_alignParentStart="true"
+        android:id="@+id/includeFirstStack"
+        android:layout_below="@+id/starIV1"
+        android:layout_marginBottom="@dimen/fab_margin" />
+
+    <include
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        layout="@layout/stack_bricks_with_tv_layout"
+        android:id="@+id/includeSecondStack"
+        android:layout_toEndOf="@+id/plusTV"
+        android:layout_below="@+id/starIV4"
+        android:layout_marginBottom="@dimen/fab_margin" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/stack_bricks_with_tv_layout"
+        android:id="@+id/includeResultStack"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/equalTV"
+        android:layout_below="@+id/addingPlusBtn"
+        android:layout_marginBottom="@dimen/fab_margin" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV1"
+        android:src="@drawable/ic_star_black_48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV2"
+        android:src="@drawable/ic_star_black_48dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/starIV1"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV3"
+        android:src="@drawable/ic_star_black_48dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/starIV2"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV4"
+        android:src="@drawable/ic_star_black_48dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/starIV3"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV5"
+        android:src="@drawable/ic_star_black_48dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/starIV4"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plusSgn"
+        android:id="@+id/addingPlusBtn"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/includeResultStack" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minusSgn"
+        android:id="@+id/addingMinusBtn"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/addingPlusBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plusSgn"
+        android:id="@+id/plusTV"
+        android:layout_alignBottom="@+id/includeSecondStack"
+        android:layout_toEndOf="@+id/includeFirstStack" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/equalSgn"
+        android:id="@+id/equalTV"
+        android:layout_alignBaseline="@+id/plusTV"
+        android:layout_alignBottom="@+id/plusTV"
+        android:layout_toEndOf="@+id/includeSecondStack" />
+
+
+</RelativeLayout>

@@ -3,20 +3,32 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plusSgn"
+            android:id="@+id/plusBtn"
+            android:onClick="onClickChangeValueOperations"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minusSgn"
+            android:id="@+id/minusBtn"
+            android:onClick="onClickChangeValueOperations"/>
+
+    </LinearLayout>
+
     <include
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        layout="@layout/stack_bricks_layout"
-        android:id="@+id/includeLeftStack" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.05"
-        android:id="@+id/bricksTV"
-        android:layout_marginTop="25dp"
-        android:gravity="center"
-        android:text="@string/currentValueLbl"/>
+        layout="@layout/stack_bricks_with_tv_layout"
+        android:id="@+id/includeStack" />
 
 </LinearLayout>

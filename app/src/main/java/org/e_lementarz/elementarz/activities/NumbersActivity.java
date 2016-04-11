@@ -34,6 +34,12 @@ public class NumbersActivity extends AppCompatActivity {
             case R.id.numbersCompareBtn:
                 intent = new Intent(NumbersActivity.this, NumbersCompareActivity.class);
                 break;
+            case R.id.numbersCompareCheckBtn:
+                intent = new Intent(NumbersActivity.this, NumbersCompareCheckActivity.class);
+                break;
+            case R.id.numbersAddingBricksBtn:
+                intent = new Intent(NumbersActivity.this, NumbersBricksAdding.class);
+                break;
         }
         startActivity(intent);
     }

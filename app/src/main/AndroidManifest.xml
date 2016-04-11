@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.e_lementarz.elementarz"
-    android:versionCode="1"
-    android:versionName="1.0">
-
-    <uses-sdk
-        android:minSdkVersion="19"
-        android:targetSdkVersion="23" />
-
-    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    package="org.e_lementarz.elementarz">
 
     <application
         android:allowBackup="true"
@@ -66,6 +56,24 @@
         <activity
             android:name=".activities.NumbersOrderActivity"
             android:label="@string/title_activity_numbers_order"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.NumbersActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NumbersCompareCheckActivity"
+            android:label="@string/title_activity_numbers_compare_check"
+            android:parentActivityName=".activities.NumbersActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.NumbersActivity" />
+        </activity>
+        <activity
+            android:name=".activities.NumbersBricksAdding"
+            android:label="@string/title_activity_numbers_bricks_adding"
+            android:parentActivityName=".activities.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

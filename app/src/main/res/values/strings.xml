@@ -16,4 +16,9 @@
     <string name="plusSgn">+</string>
     <string name="order">Order</string>
     <string name="title_activity_numbers_order">NumbersOrderActivity</string>
+    <string name="compareCheck">Compare check</string>
+    <string name="title_activity_numbers_compare_check">NumbersCompareCheckActivity</string>
+    <string name="title_activity_numbers_bricks_adding">NumbersBricksAdding</string>
+    <string name="adding_bricks">Adding bricks</string>
+    <string name="equalSgn">=</string>
 </resources>
