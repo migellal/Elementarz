@@ -8,7 +8,8 @@ import android.view.View;
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.common.ElementarzActivity;
 import org.e_lementarz.elementarz.common.MorphingAnimation;
-import org.e_lementarz.elementarz.common.StackBricks;
+import org.e_lementarz.elementarz.common.StackBricksCreator;
+import org.e_lementarz.elementarz.common.StackBricksView;
 
 public class NumbersOrderActivity extends ElementarzActivity {
 
@@ -22,8 +23,9 @@ public class NumbersOrderActivity extends ElementarzActivity {
         setContentView(R.layout.activity_numbers_order);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        final StackBricks stackBricksViewGroup = new StackBricks();
-        bricksStacks = stackBricksViewGroup.getContainers(this);
+        final StackBricksCreator stackBricksCreator = new StackBricksCreator();
+        final StackBricksView stackBricksView = new StackBricksView();
+        bricksStacks = stackBricksCreator.createContainers(this);
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
@@ -31,8 +33,8 @@ public class NumbersOrderActivity extends ElementarzActivity {
             public void onClick(View view) {
                 if(counter<10) {
                     counter++;
-                    bricksArray = stackBricksViewGroup.getBricksStack(bricksStacks[counter], counter);
-                    stackBricksViewGroup.refreshAllViewsOnlyAdding(counter, bricksArray, getApplicationContext());
+                    bricksArray = stackBricksCreator.createBricksStack(bricksStacks[counter], counter);
+                    stackBricksView.refreshAllViewsOnlyAdding(bricksArray, counter, getApplicationContext());
                     if(counter==10) {
                         MorphingAnimation morphAnim = new MorphingAnimation(getApplicationContext(), fab);
                         morphAnim.animFab(R.drawable.ic_line_to_done);

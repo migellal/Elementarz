@@ -10,7 +10,8 @@ import android.widget.TextView;
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.common.ElementarzActivity;
 import org.e_lementarz.elementarz.common.MorphingAnimation;
-import org.e_lementarz.elementarz.common.StackBricks;
+import org.e_lementarz.elementarz.common.StackBricksCreator;
+import org.e_lementarz.elementarz.common.StackBricksView;
 
 import java.util.Random;
 
@@ -34,7 +35,8 @@ public class NumbersBricksAdding extends ElementarzActivity {
     private TextView firstStackCounterTV;
     private TextView secondStackCounterTV;
     private TextView resultStackCounterTV;
-    private StackBricks stackBricks = new StackBricks();
+    private StackBricksCreator stackBricksCreator = new StackBricksCreator();
+    private StackBricksView stackBricksView = new StackBricksView();
     private Random random = new Random();
     private int counter = 0;
     private int firstRand;
@@ -50,6 +52,7 @@ public class NumbersBricksAdding extends ElementarzActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers_bricks_adding);
         setNaviBarColor();
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
@@ -59,20 +62,19 @@ public class NumbersBricksAdding extends ElementarzActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (counter == result) {
-                    morphAnim.animFab(R.drawable.ic_line_to_done, true);
+                if (starCounter < 5) {
+                    if (counter == result) {
+                        morphAnim.animFab(R.drawable.ic_line_to_done, true);
+                    } else {
+                        morphAnim.animFab(R.drawable.ic_line_to_undone, false);
+                    }
+                    addStar(counter == result);
+                    createReadyView();
                 } else {
-                    morphAnim.animFab(R.drawable.ic_line_to_undone, false);
-                }
-                addStar(counter == result);
-                createReadyView();
+                } // TODO start nowego activity
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ButterKnife.bind(this);
-        firstStackCounterTV = (TextView) includeFirstStack.findViewById(R.id.bricksTV);
-        secondStackCounterTV = (TextView) includeSecondStack.findViewById(R.id.bricksTV);
-        resultStackCounterTV = (TextView) includeResultStack.findViewById(R.id.bricksTV);
         createReadyView();
     }
 
@@ -80,14 +82,18 @@ public class NumbersBricksAdding extends ElementarzActivity {
         firstRand = random.nextInt(6);
         secondRand = random.nextInt(6);
         if (firstRun) {
-            bricksFirstArray = stackBricks.getBricksStack(includeFirstStack, firstRand + 1);
-            bricksSecondArray = stackBricks.getBricksStack(includeSecondStack, secondRand + 1);
-            bricksResultArray = stackBricks.getBricksStack(includeResultStack);
+            firstStackCounterTV = (TextView) includeFirstStack.findViewById(R.id.bricksTV);
+            secondStackCounterTV = (TextView) includeSecondStack.findViewById(R.id.bricksTV);
+            resultStackCounterTV = (TextView) includeResultStack.findViewById(R.id.bricksTV);
+            bricksFirstArray = stackBricksCreator.createBricksStack(includeFirstStack, firstRand);
+            bricksSecondArray = stackBricksCreator.createBricksStack(includeSecondStack, secondRand);
+            bricksResultArray = stackBricksCreator.createBricksStack(includeResultStack);
             firstRun = false;
         } else {
-            bricksFirstArray = stackBricks.refreshStack(bricksFirstArray, firstRand + 1);
-            bricksSecondArray = stackBricks.refreshStack(bricksSecondArray, secondRand + 1);
-            // TODO dlaczego nie działa czyszcenie ostatniego elementu stosu???
+            bricksFirstArray = stackBricksView.showStack(bricksFirstArray, firstRand);
+            bricksSecondArray = stackBricksView.showStack(bricksSecondArray, secondRand);
+            bricksResultArray = stackBricksView.showStack(bricksResultArray);
+            bricksResultArray[counter].setAlpha(0);
         }
         counter = 0;
         firstStackCounterTV.setText(String.valueOf(firstRand));
@@ -101,7 +107,8 @@ public class NumbersBricksAdding extends ElementarzActivity {
     void add() {
         if (counter < 10) {
             counter++;
-            stackBricks.refreshView(counter, bricksResultArray, getApplicationContext());
+            bricksResultArray[counter].setAlpha(1);
+            stackBricksView.refreshView(bricksResultArray, counter, getApplicationContext());
             resultStackCounterTV.setText(String.valueOf(counter));
         }
     }
@@ -110,7 +117,7 @@ public class NumbersBricksAdding extends ElementarzActivity {
     void remove() {
         if (counter > 0) {
             counter--;
-            stackBricks.refreshView(counter, bricksResultArray, getApplicationContext());
+            stackBricksView.refreshView(bricksResultArray, counter, getApplicationContext());
             resultStackCounterTV.setText(String.valueOf(counter));
         }
     }

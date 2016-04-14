@@ -11,7 +11,8 @@ import android.widget.TextView;
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.common.Const;
 import org.e_lementarz.elementarz.common.ElementarzActivity;
-import org.e_lementarz.elementarz.common.StackBricks;
+import org.e_lementarz.elementarz.common.StackBricksCreator;
+import org.e_lementarz.elementarz.common.StackBricksView;
 
 public class NumbersBricksActivity extends ElementarzActivity {
 
@@ -27,9 +28,10 @@ public class NumbersBricksActivity extends ElementarzActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         counterView = (TextView) findViewById(R.id.bricksTV);
-        final StackBricks stackBricksViewGroup = new StackBricks();
+        final StackBricksCreator stackBricksCreatorViewGroup = new StackBricksCreator();
+        final StackBricksView stackBricksView = new StackBricksView();
         final View stackBricksContainer = findViewById(R.id.stack_bricks);
-        bricksArray = stackBricksViewGroup.getBricksStack(stackBricksContainer);
+        bricksArray = stackBricksCreatorViewGroup.createBricksStack(stackBricksContainer);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.addNumberFAB);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +39,7 @@ public class NumbersBricksActivity extends ElementarzActivity {
             public void onClick(View view) {
                 if(counter<10) {
                     counter++;
-                    stackBricksViewGroup.refreshView(counter, bricksArray, getApplicationContext());
+                    stackBricksView.refreshView(bricksArray, counter, getApplicationContext());
                     refreshText();
                 }
             }
@@ -49,7 +51,7 @@ public class NumbersBricksActivity extends ElementarzActivity {
             public void onClick(View v) {
                 if (counter > 0) {
                     counter--;
-                    stackBricksViewGroup.refreshView(counter, bricksArray, getApplicationContext());
+                    stackBricksView.refreshView(bricksArray, counter, getApplicationContext());
                     refreshText();
                 }
             }
@@ -59,7 +61,7 @@ public class NumbersBricksActivity extends ElementarzActivity {
         if(savedInstanceState!=null) {
             counter = savedInstanceState.getInt(Const.COUNTER);
             if(counter!=0)
-                stackBricksViewGroup.refreshView(counter, bricksArray, getApplicationContext());
+                stackBricksView.refreshAllViewsOnlyAdding(bricksArray, counter, getApplicationContext());
         }
     }
 
@@ -71,8 +73,7 @@ public class NumbersBricksActivity extends ElementarzActivity {
 
     private void refreshText()
     {
-        String counterText = ""+counter;
-        counterView.setText(counterText);
+        counterView.setText(String.valueOf(counter));
     }
 
 
