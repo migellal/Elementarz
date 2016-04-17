@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorSuccessGreen"
-    android:id="@+id/layoutFailure">
+    android:id="@+id/layoutSuccess"
+    android:visibility="gone">
 
     <ImageView
         android:layout_width="300dp"

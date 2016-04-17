@@ -32,6 +32,7 @@ public class StackBricksCreator {
     }
 
     public View[] createBricksStack(View container, int height) {
+        height++;
         View[] v = createBricksStack(container);
         for (int i = 1; i < height; i++)
             v[i].setVisibility(View.VISIBLE);

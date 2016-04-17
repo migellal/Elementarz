@@ -22,6 +22,8 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_numbers_bricks_adding" />
+    <include layout="@layout/layout_success" />
+    <include layout="@layout/layout_failure" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

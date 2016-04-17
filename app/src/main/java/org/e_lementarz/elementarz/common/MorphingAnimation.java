@@ -30,12 +30,15 @@ public class MorphingAnimation {
     }
 
     public void animFab(int resId, boolean success) {
-        final Animatable icon = (Animatable) ResourcesCompat.getDrawable(context, resId);
-        floatingActionButton.setImageDrawable((Drawable) icon);
-        icon.start();
+        animFab(resId);
         if(success)
             floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSuccessGreen));
         else
             floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorFailureRed));
+    }
+
+    public void animFab(int resId, int color) {
+        animFab(resId);
+        floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(color));
     }
 }

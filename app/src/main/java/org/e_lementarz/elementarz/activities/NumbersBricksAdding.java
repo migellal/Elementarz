@@ -1,10 +1,14 @@
 package org.e_lementarz.elementarz.activities;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
@@ -45,6 +49,19 @@ public class NumbersBricksAdding extends ElementarzActivity {
     private int starCounter = 0;
     private MorphingAnimation morphAnim;
     private boolean firstRun = true;
+    @Bind(R.id.contentNumbersBricksAddingRL)
+    RelativeLayout contentNumbersBricksAdding;
+    @Bind(R.id.layoutSuccess)
+    View layoutSuccess;
+    @Bind(R.id.layoutFailure)
+    View layoutFailure;
+    private int centerX;
+    private int centerY;
+    private int startRadius = 0;
+    private int endRadius;
+    private int reverse_startRadius;
+    private int reverse_endRadius = 0;
+    private FloatingActionButton fab;
 
 
     @Override
@@ -56,21 +73,45 @@ public class NumbersBricksAdding extends ElementarzActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         morphAnim = new MorphingAnimation(getApplicationContext(), fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (starCounter < 5) {
+                    calculateValues();
                     if (counter == result) {
                         morphAnim.animFab(R.drawable.ic_line_to_done, true);
+                        Animator anim =
+                                ViewAnimationUtils.createCircularReveal(layoutSuccess, centerX, centerY, startRadius, endRadius);
+                        layoutSuccess.setVisibility(View.VISIBLE);
+                        anim.addListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                super.onAnimationEnd(animation);
+                                addStar(counter == result);
+                                createReadyView();
+                            }
+                        });
+                        anim.start();
                     } else {
                         morphAnim.animFab(R.drawable.ic_line_to_undone, false);
+                        Animator anim =
+                                ViewAnimationUtils.createCircularReveal(layoutFailure, centerX, centerY, startRadius, endRadius);
+                        layoutFailure.setVisibility(View.VISIBLE);
+                        anim.addListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                super.onAnimationEnd(animation);
+                                addStar(counter == result);
+                                createReadyView();
+                            }
+                        });
+                        anim.start();
                     }
-                    addStar(counter == result);
-                    createReadyView();
                 } else {
+                    fab.setClickable(false);
                 } // TODO start nowego activity
             }
         });
@@ -92,8 +133,9 @@ public class NumbersBricksAdding extends ElementarzActivity {
         } else {
             bricksFirstArray = stackBricksView.showStack(bricksFirstArray, firstRand);
             bricksSecondArray = stackBricksView.showStack(bricksSecondArray, secondRand);
-            bricksResultArray = stackBricksView.showStack(bricksResultArray);
-            bricksResultArray[counter].setAlpha(0);
+            bricksResultArray = stackBricksView.hideStack(bricksResultArray);
+            if(counter!=0)
+                bricksResultArray[counter].setAlpha(0);
         }
         counter = 0;
         firstStackCounterTV.setText(String.valueOf(firstRand));
@@ -122,11 +164,47 @@ public class NumbersBricksAdding extends ElementarzActivity {
         }
     }
 
+    @OnClick(R.id.successView)
+    void hideResultWhenSuccess() {
+        Animator animate = ViewAnimationUtils.createCircularReveal(layoutSuccess, centerX, centerY, reverse_startRadius, reverse_endRadius);
+        animate.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                layoutSuccess.setVisibility(View.GONE);
+            }
+        });
+        animate.start();
+        morphAnim.animFab(R.drawable.ic_done_to_line, R.color.colorAccent);
+    }
+
+    @OnClick(R.id.failureView)
+    void hideResultWhenFailure() {
+        Animator animate = ViewAnimationUtils.createCircularReveal(layoutFailure, centerX, centerY, reverse_startRadius, reverse_endRadius);
+        animate.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                layoutFailure.setVisibility(View.GONE);
+            }
+        });
+        animate.start();
+        morphAnim.animFab(R.drawable.ic_undone_to_line, R.color.colorAccent);
+    }
+
     private void addStar(boolean result) {
         if (!result)
             starContainer[starCounter].setImageResource(R.drawable.ic_star_border_black_48dp);
         starContainer[starCounter].setVisibility(View.VISIBLE);
         starCounter++;
+    }
+
+    void calculateValues() {
+        centerX = contentNumbersBricksAdding.getRight();
+        centerY = contentNumbersBricksAdding.getBottom();
+        double valueToSqrt = Math.pow((double) contentNumbersBricksAdding.getWidth(), 2) + Math.pow((double) contentNumbersBricksAdding.getHeight(), 2);
+        endRadius = (int) Math.sqrt(valueToSqrt);
+        reverse_startRadius = endRadius;
     }
 
 }

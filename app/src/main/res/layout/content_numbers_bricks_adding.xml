@@ -10,7 +10,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activities.NumbersBricksAdding"
     tools:showIn="@layout/activity_numbers_bricks_adding"
-    android:id="@+id/mRelLay">
+    android:id="@+id/contentNumbersBricksAddingRL">
 
     <include
         android:layout_width="150dp"
