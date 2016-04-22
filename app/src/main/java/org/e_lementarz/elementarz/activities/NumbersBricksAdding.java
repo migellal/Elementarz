@@ -59,8 +59,6 @@ public class NumbersBricksAdding extends ElementarzActivity {
     private int centerY;
     private int startRadius = 0;
     private int endRadius;
-    private int reverse_startRadius;
-    private int reverse_endRadius = 0;
     private FloatingActionButton fab;
 
 
@@ -166,7 +164,7 @@ public class NumbersBricksAdding extends ElementarzActivity {
 
     @OnClick(R.id.successView)
     void hideResultWhenSuccess() {
-        Animator animate = ViewAnimationUtils.createCircularReveal(layoutSuccess, centerX, centerY, reverse_startRadius, reverse_endRadius);
+        Animator animate = ViewAnimationUtils.createCircularReveal(layoutSuccess, centerX, centerY, endRadius, startRadius);
         animate.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -180,7 +178,7 @@ public class NumbersBricksAdding extends ElementarzActivity {
 
     @OnClick(R.id.failureView)
     void hideResultWhenFailure() {
-        Animator animate = ViewAnimationUtils.createCircularReveal(layoutFailure, centerX, centerY, reverse_startRadius, reverse_endRadius);
+        Animator animate = ViewAnimationUtils.createCircularReveal(layoutFailure, centerX, centerY, endRadius, startRadius);
         animate.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -204,7 +202,6 @@ public class NumbersBricksAdding extends ElementarzActivity {
         centerY = contentNumbersBricksAdding.getBottom();
         double valueToSqrt = Math.pow((double) contentNumbersBricksAdding.getWidth(), 2) + Math.pow((double) contentNumbersBricksAdding.getHeight(), 2);
         endRadius = (int) Math.sqrt(valueToSqrt);
-        reverse_startRadius = endRadius;
     }
 
 }
