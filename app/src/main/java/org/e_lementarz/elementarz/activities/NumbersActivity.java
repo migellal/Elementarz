@@ -8,13 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.common.ElementarzActivity;
 
-public class NumbersActivity extends AppCompatActivity {
+public class NumbersActivity extends ElementarzActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
+        setNaviBarColor();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
