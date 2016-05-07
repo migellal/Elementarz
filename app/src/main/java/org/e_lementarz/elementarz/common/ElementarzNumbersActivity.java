@@ -12,6 +12,7 @@ import android.graphics.Point;
 import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -158,6 +159,10 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
         setNaviBarColor();
         calculateValues();
         ButterKnife.bind(this);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     private void setNaviBarColor() {

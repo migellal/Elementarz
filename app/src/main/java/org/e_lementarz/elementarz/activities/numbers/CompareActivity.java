@@ -93,10 +93,6 @@ public class CompareActivity extends ElementarzNumbersActivity {
     @Override
     public void createViews() {
         super.createViews();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         startAnim(this, R.id.content_compare);
         View stackBricksContainerLeft = findViewById(R.id.includeLeftStack);

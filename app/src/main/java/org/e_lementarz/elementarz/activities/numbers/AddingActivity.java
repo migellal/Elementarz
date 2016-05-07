@@ -140,10 +140,6 @@ public class AddingActivity extends ElementarzNumbersActivity {
     @Override
     public void createViews() {
         super.createViews();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         startAnim(this, R.id.content_adding);
         createReadyView();

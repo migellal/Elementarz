@@ -53,10 +53,6 @@ public class BricksOrderActivity extends ElementarzNumbersActivity implements El
     @Override
     public void createViews() {
         super.createViews();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         startAnim(this, R.id.content_bricks_order);
         bricksStacks = stackBricksElementsCreator.createContainers(this);

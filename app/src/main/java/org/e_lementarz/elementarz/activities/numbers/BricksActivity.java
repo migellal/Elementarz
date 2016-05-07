@@ -59,10 +59,6 @@ public class BricksActivity extends ElementarzNumbersActivity {
     @Override
     public void createViews() {
         super.createViews();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         StackBricksElementsCreator stackBricksElementsCreator = new StackBricksElementsCreator();
         View stackBricksContainer = findViewById(R.id.stack_bricks);
