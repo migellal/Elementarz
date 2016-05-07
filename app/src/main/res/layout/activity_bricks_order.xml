@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activities.NumbersBricksAdding">
+    tools:context=".activities.numbers.BricksOrderActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_numbers_bricks_adding" />
+    <include layout="@layout/content_bricks_order" />
     <include layout="@layout/layout_success" />
     <include layout="@layout/layout_failure" />
 

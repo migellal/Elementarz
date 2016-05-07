@@ -4,20 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import org.e_lementarz.elementarz.R;
-import org.e_lementarz.elementarz.common.ElementarzActivity;
+import org.e_lementarz.elementarz.activities.numbers.NumbersActivity;
+import org.e_lementarz.elementarz.activities.words.WordsActivity;
 
-public class MenuActivity extends ElementarzActivity {
+public class MenuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        setNaviBarColor();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
@@ -46,8 +46,7 @@ public class MenuActivity extends ElementarzActivity {
 
     public void onClickMenu(View view) {
         Intent intent = null;
-        switch (view.getId())
-        {
+        switch (view.getId()) {
             case R.id.numbersBtn:
                 intent = new Intent(MenuActivity.this, NumbersActivity.class);
                 break;
@@ -57,4 +56,5 @@ public class MenuActivity extends ElementarzActivity {
         }
         startActivity(intent);
     }
+
 }

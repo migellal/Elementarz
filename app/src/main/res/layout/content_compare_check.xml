@@ -9,7 +9,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activities.words.WordsActivity"
-    tools:showIn="@layout/activity_words">
+    tools:context=".activities.numbers.CompareCheckActivity"
+    tools:showIn="@layout/activity_compare_check"
+    android:id="@+id/content_compare_check">
+
+
 
 </RelativeLayout>

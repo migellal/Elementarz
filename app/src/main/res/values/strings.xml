@@ -21,4 +21,5 @@
     <string name="title_activity_numbers_bricks_adding">NumbersBricksAdding</string>
     <string name="adding_bricks">Adding bricks</string>
     <string name="equalSgn">=</string>
+    <string name="title_activity_adding_check">AddingCheckActivity</string>
 </resources>

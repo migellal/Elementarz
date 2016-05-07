@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
+import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.util.ReverseInterpolator;
@@ -13,7 +14,7 @@ import org.e_lementarz.elementarz.util.ReverseInterpolator;
 /**
  * Created by micha on 21.03.2016.
  */
-public class StackBricksCreator {
+public class StackBricksElementsCreator {
 
 
     public View[] createBricksStack(View container) {
@@ -27,14 +28,13 @@ public class StackBricksCreator {
         View bricks8 = container.findViewById(R.id.brick8V);
         View bricks9 = container.findViewById(R.id.brick9V);
         View bricks10 = container.findViewById(R.id.brick10V);
-        return new View[]{null, bricks1, bricks2, bricks3, bricks4, bricks5, bricks6,
+        return new View[]{bricks1, bricks2, bricks3, bricks4, bricks5, bricks6,
                 bricks7, bricks8, bricks9, bricks10};
     }
 
     public View[] createBricksStack(View container, int height) {
-        height++;
         View[] v = createBricksStack(container);
-        for (int i = 1; i < height; i++)
+        for (int i = 0; i < height; i++)
             v[i].setVisibility(View.VISIBLE);
         return v;
     }
@@ -50,7 +50,11 @@ public class StackBricksCreator {
         final View viewStack8 = rootContainer.findViewById(R.id.includeOrderStack8);
         final View viewStack9 = rootContainer.findViewById(R.id.includeOrderStack9);
         final View viewStack10 = rootContainer.findViewById(R.id.includeOrderStack10);
-        return new View[]{null, viewStack1, viewStack2, viewStack3, viewStack4, viewStack5,
+        return new View[]{viewStack1, viewStack2, viewStack3, viewStack4, viewStack5,
                 viewStack6, viewStack7, viewStack8, viewStack9, viewStack10};
+    }
+
+    public TextView createTextView(View container){
+        return (TextView) container.findViewById(R.id.bricksTV);
     }
 }

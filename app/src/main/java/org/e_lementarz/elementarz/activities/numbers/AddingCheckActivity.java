@@ -1,4 +1,4 @@
-package org.e_lementarz.elementarz.activities;
+package org.e_lementarz.elementarz.activities.numbers;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,17 +9,16 @@ import android.view.View;
 
 import org.e_lementarz.elementarz.R;
 
-public class NumbersCompareCheckActivity extends AppCompatActivity {
+public class AddingCheckActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers_compare_check);
+        setContentView(R.layout.activity_adding_check);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,7 +26,6 @@ public class NumbersCompareCheckActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

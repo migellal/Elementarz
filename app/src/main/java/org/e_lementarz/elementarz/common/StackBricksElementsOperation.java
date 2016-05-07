@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
+import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.util.ReverseInterpolator;
@@ -12,75 +13,72 @@ import org.e_lementarz.elementarz.util.ReverseInterpolator;
 /**
  * Created by micha on 13.04.2016.
  */
-public class StackBricksView {
+public class StackBricksElementsOperation {
 
     private Animation animPut;
 
-    public View[] hideStack(View bricks[]) {
-        for (int i = 1; i < bricks.length; i++) {
+    public void hideStack(View bricks[]) {
+        for (int i = 0; i < bricks.length; i++) {
             bricks[i].setVisibility(View.INVISIBLE);
         }
-        return bricks;
     }
 
-    public View[] hideStack(View bricks[], int height) {
-        height++;
-        for (int i = 1; i < height; i++) {
+    public void hideStack(View bricks[], int height) {
+        for (int i = 0; i < height; i++) {
             bricks[i].setVisibility(View.INVISIBLE);
         }
-        for (; height <= 10; height++) {
+        for (; height < 10; height++) {
             bricks[height].setVisibility(View.VISIBLE);
         }
-
-        return bricks;
     }
 
-    public View[] showStack(View bricks[]) {
-        for (int i = 1; i < bricks.length; i++) {
+    public void showStack(View bricks[]) {
+        for (int i = 0; i < bricks.length; i++) {
             bricks[i].setVisibility(View.VISIBLE);
         }
-        return bricks;
     }
 
-    public View[] showStack(View bricks[], int height) {
-        height++;
-        for (int i = 1; i < height; i++) {
+    public void showStack(View bricks[], int height) {
+        for (int i = 0; i < height; i++) {
             bricks[i].setVisibility(View.VISIBLE);
         }
-        for (; height <= 10; height++) {
+        for (; height < 10; height++) {
             bricks[height].setVisibility(View.INVISIBLE);
         }
-
-        return bricks;
     }
 
 
-    public void refreshView(View[] bricksArray, int counter, Context context) {
+    public Animation refreshStack(View[] bricksArray, int counter, Context context) {
         animPut = AnimationUtils.loadAnimation(context,
                 R.anim.put_anim);
-        if (counter > 0 && bricksArray[counter].getVisibility() == View.INVISIBLE) {
-            if (counter > 1)
+        if (counter >= 0 && bricksArray[counter].getVisibility() == View.INVISIBLE) {
+            if (counter > 0)
                 bricksArray[counter - 1].clearAnimation();
             bricksArray[counter].setVisibility(View.VISIBLE);
             animPut.setInterpolator(new BounceInterpolator());
             bricksArray[counter].startAnimation(animPut);
         } else {
             if (counter < 9)
-                bricksArray[counter + 2].clearAnimation();
-            bricksArray[counter + 1].setVisibility(View.INVISIBLE);
+                bricksArray[counter + 1].clearAnimation();
+            bricksArray[counter].setVisibility(View.INVISIBLE);
             ReverseInterpolator reverseInterpolator = new ReverseInterpolator();
             animPut.setInterpolator(reverseInterpolator);
-            bricksArray[counter + 1].startAnimation(animPut);
+            bricksArray[counter].startAnimation(animPut);
         }
-
+        return animPut;
     }
 
-    public void refreshAllViewsOnlyAdding(View[] bricksArray, int counter, Context context) {
+    public Animation refreshStackOnlyAdding(View[] bricksArray, int counter, Context context) {
         animPut = AnimationUtils.loadAnimation(context,
                 R.anim.put_anim);
         animPut.setInterpolator(new BounceInterpolator());
-        for (int i = 1; i <= counter; i++) {
+        for (int i = 0; i <= counter; i++) {
             bricksArray[i].startAnimation(animPut);
         }
+        return animPut;
+    }
+
+    public void refreshText(TextView textView, int counter) {
+        textView.setText(String.valueOf(counter));
     }
 }

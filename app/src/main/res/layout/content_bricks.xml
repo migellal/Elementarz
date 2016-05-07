@@ -9,8 +9,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activities.NumbersBricksActivity"
-    tools:showIn="@layout/activity_numbers_bricks">
+    tools:context=".activities.numbers.BricksActivity"
+    tools:showIn="@layout/activity_bricks"
+    android:id="@+id/content_bricks">
 
     <Button
         android:layout_width="wrap_content"

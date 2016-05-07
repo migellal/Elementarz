@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="org.e_lementarz.elementarz.activities.NumbersCompareActivity">
+    tools:context=".activities.numbers.AddingActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,14 +21,16 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_numbers_compare" />
+    <include layout="@layout/content_adding" />
+    <include layout="@layout/layout_success" />
+    <include layout="@layout/layout_failure" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/checkFAB"
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_done_vector" />
+        android:src="@drawable/ic_line_vector" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -12,15 +12,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/plusSgn"
-            android:id="@+id/plusBtn"
-            android:onClick="onClickChangeValueOperations"/>
+            android:id="@+id/plusBtn" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/minusSgn"
-            android:id="@+id/minusBtn"
-            android:onClick="onClickChangeValueOperations"/>
+            android:id="@+id/minusBtn" />
 
     </LinearLayout>
 

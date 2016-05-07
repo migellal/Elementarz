@@ -9,9 +9,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.e_lementarz.elementarz.activities.NumbersCompareActivity"
-    tools:showIn="@layout/activity_numbers_compare"
-    android:id="@+id/numbers_compare_content">
+    tools:context=".activities.numbers.CompareActivity"
+    tools:showIn="@layout/activity_compare"
+    android:id="@+id/content_compare">
 
     <TextView
         android:layout_width="wrap_content"

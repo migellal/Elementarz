@@ -30,25 +30,27 @@ public class MorphingAnimation {
         this.imageView = imageView;
     }
 
+    public MorphingAnimation(Context context, FloatingActionButton floatingActionButton, ImageView imageView) {
+        this.context = context;
+        this.floatingActionButton = floatingActionButton;
+        this.imageView = imageView;
+    }
+
     public void animImageView(int resId) {
         final Animatable animatable = (Animatable) ResourcesCompat.getDrawable(context, resId);
         imageView.setImageDrawable((Drawable) animatable);
         animatable.start();
     }
 
+    /**
+     * Default color - success green
+     * */
+
     public void animFab(int resId) {
         final Animatable icon = (Animatable) ResourcesCompat.getDrawable(context, resId);
         floatingActionButton.setImageDrawable((Drawable) icon);
         icon.start();
         floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSuccessGreen));
-    }
-
-    public void animFab(int resId, boolean success) {
-        animFab(resId);
-        if(success)
-            floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSuccessGreen));
-        else
-            floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorFailureRed));
     }
 
     public void animFab(int resId, int color) {
