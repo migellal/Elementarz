@@ -1,32 +1,142 @@
 package org.e_lementarz.elementarz.activities.numbers;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.common.ElementarzNumbersActivity;
+import org.e_lementarz.elementarz.common.StackBricksElementsCreator;
+import org.e_lementarz.elementarz.common.StackBricksElementsOperation;
 
-public class AddingCheckActivity extends AppCompatActivity {
+import java.util.Random;
+
+import butterknife.Bind;
+import butterknife.OnClick;
+
+public class AddingCheckActivity extends ElementarzNumbersActivity {
+
+    private int counter = 0;
+    private int result;
+    private int gameCounter = 0;
+    private boolean screenFiled = false;
+    @Bind(R.id.includeFirstStack)
+    View includeFirstStack;
+    @Bind(R.id.includeSecondStack)
+    View includeSecondStack;
+    @Bind(R.id.includeResultStack)
+    View includeResultStack;
+    private View[] bricksFirstArray;
+    private View[] bricksSecondArray;
+    private View[] bricksResultArray;
+    private TextView firstStackCounterTV;
+    private TextView secondStackCounterTV;
+    private TextView resultStackCounterTV;
+    private StackBricksElementsCreator stackBricksElementsCreator = new StackBricksElementsCreator();
+    private StackBricksElementsOperation stackBricksElementsOperation = new StackBricksElementsOperation();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adding_check);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_adding);
+        createViews();
+    }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+    @Override
+    @OnClick(R.id.fab)
+    public void onClickFab() {
+        if (gameCounter < 5) {
+            if (counter == result) {
+                if (!screenFiled) {
+                    fillScreen(true, true);
+                    screenFiled = true;
+                } else
+                    onClickSuccessView();
+            } else {
+                if (!screenFiled) {
+                    fillScreen(false, true);
+                    screenFiled = true;
+                } else
+                    onClickFailureView();
             }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    private void createReadyView() {
+        Random random = new Random();
+        int firstRand = random.nextInt(6);
+        int secondRand = random.nextInt(6);
+        stackBricksElementsOperation.showStack(bricksFirstArray, firstRand);
+        stackBricksElementsOperation.showStack(bricksSecondArray, secondRand);
+        stackBricksElementsOperation.hideStack(bricksResultArray);
+        counter = 0;
+        stackBricksElementsOperation.refreshText(firstStackCounterTV, firstRand);
+        stackBricksElementsOperation.refreshText(secondStackCounterTV, secondRand);
+        stackBricksElementsOperation.refreshText(resultStackCounterTV, counter);
+        result = firstRand + secondRand;
+    }
+
+    @OnClick(R.id.addingPlusBtn)
+    void add() {
+        if (counter < 10) {
+            stackBricksElementsOperation.refreshStack(bricksResultArray, counter, getApplicationContext());
+            counter++;
+            stackBricksElementsOperation.refreshText(resultStackCounterTV, counter);
+        }
+    }
+
+    @OnClick(R.id.addingMinusBtn)
+    void remove() {
+        if (counter > 0) {
+            counter--;
+            stackBricksElementsOperation.refreshStack(bricksResultArray, counter, getApplicationContext());
+            stackBricksElementsOperation.refreshText(resultStackCounterTV, counter);
+        }
+    }
+
+    @Override
+    @OnClick(R.id.successView)
+    public void onClickSuccessView() {
+        nextStar(this, true);
+        gameCounter++;
+        if (gameCounter == 5)
+            nextActivity(true, AddingCheckActivity.this, NumbersActivity.class);
+        else {
+            createReadyView();
+            unFillScreen(true, true);
+            screenFiled = false;
+        }
+    }
+
+    @OnClick(R.id.failureView)
+    void onClickFailureView() {
+        nextStar(this, false);
+        gameCounter++;
+        if (gameCounter == 5)
+            nextActivity(false, AddingCheckActivity.this, NumbersActivity.class);
+        else {
+            createReadyView();
+            unFillScreen(false, true);
+            screenFiled = false;
+        }
+    }
+
+    @Override
+    public void createViews() {
+        super.createViews();
+        Random random = new Random();
+        int firstRand = random.nextInt(6);
+        int secondRand = random.nextInt(6);
+
+        startAnim(this, R.id.content_adding);
+        firstStackCounterTV = (TextView) includeFirstStack.findViewById(R.id.bricksTV);
+        secondStackCounterTV = (TextView) includeSecondStack.findViewById(R.id.bricksTV);
+        resultStackCounterTV = (TextView) includeResultStack.findViewById(R.id.bricksTV);
+        bricksFirstArray = stackBricksElementsCreator.createBricksStack(includeFirstStack, firstRand);
+        bricksSecondArray = stackBricksElementsCreator.createBricksStack(includeSecondStack, secondRand);
+        bricksResultArray = stackBricksElementsCreator.createBricksStack(includeResultStack);
+        createReadyView();
     }
 
 }

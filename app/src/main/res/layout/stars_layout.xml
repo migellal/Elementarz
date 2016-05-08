@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV1"
+        android:src="@drawable/ic_star_black_48dp"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV2"
+        android:src="@drawable/ic_star_black_48dp"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV3"
+        android:src="@drawable/ic_star_black_48dp"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV4"
+        android:src="@drawable/ic_star_black_48dp"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/starIV5"
+        android:src="@drawable/ic_star_black_48dp"
+        android:contentDescription="@string/app_name"
+        android:visibility="invisible" />
 
 </LinearLayout>

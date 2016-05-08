@@ -13,45 +13,35 @@
     tools:showIn="@layout/activity_compare"
     android:id="@+id/content_compare">
 
-    <TextView
+    <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/I"
-        android:id="@+id/ITV"
-        android:layout_alignParentBottom="true"
+        layout="@layout/stars_layout"
+        android:id="@+id/stars"
+        android:layout_above="@+id/includeLeftStack"
         android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/line"
-        android:id="@+id/lineTV"
-        android:layout_above="@+id/ITV"
-        android:layout_centerHorizontal="true"/>
 
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        layout="@layout/stack_bricks_layout"
-        android:layout_above="@+id/lineTV"
+        layout="@layout/stack_bricks_with_tv_layout"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_toStartOf="@+id/ITV"
         android:layout_below="@+id/plusLeftBtn"
-        android:id="@+id/includeLeftStack" />
+        android:id="@+id/includeLeftStack"
+        android:layout_toStartOf="@+id/equalTV" />
 
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        layout="@layout/stack_bricks_layout"
-        android:layout_above="@+id/lineTV"
+        layout="@layout/stack_bricks_with_tv_layout"
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_toEndOf="@+id/ITV"
         android:id="@+id/includeRightStack"
-        android:layout_below="@+id/minusRightBtn" />
+        android:layout_below="@+id/minusRightBtn"
+        android:layout_toEndOf="@+id/equalTV" />
 
     <Button
         android:layout_width="wrap_content"
@@ -88,4 +78,12 @@
         android:onClick="onClickCompareOperations"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/minusRightBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/equalSgn"
+        android:id="@+id/equalTV"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -23,7 +23,7 @@ public class NumbersActivity extends ElementarzNumbersActivity {
     public void onClickNumbers(View view) {
         Intent intent = null;
         switch (view.getId()) {
-            case R.id.numbersBricksBtn:
+            case R.id.bricksBtn:
                 intent = new Intent(NumbersActivity.this, BricksActivity.class);
                 break;
             case R.id.numbersOrderBtn:
@@ -37,6 +37,9 @@ public class NumbersActivity extends ElementarzNumbersActivity {
                 break;
             case R.id.numbersAddingBricksBtn:
                 intent = new Intent(NumbersActivity.this, AddingActivity.class);
+                break;
+            case R.id.addingCheckBtn:
+                intent = new Intent(NumbersActivity.this, AddingCheckActivity.class);
                 break;
         }
         startActivity(intent);

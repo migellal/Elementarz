@@ -18,52 +18,65 @@ public class StackBricksElementsOperation {
     private Animation animPut;
 
     public void hideStack(View bricks[]) {
-        for (int i = 0; i < bricks.length; i++) {
-            bricks[i].setVisibility(View.INVISIBLE);
+        for (View brick : bricks) {
+            brick.setAlpha(0);
+            brick.clearAnimation();
         }
     }
 
     public void hideStack(View bricks[], int height) {
-        for (int i = 0; i < height; i++) {
-            bricks[i].setVisibility(View.INVISIBLE);
-        }
+        hideStack(bricks);
         for (; height < 10; height++) {
-            bricks[height].setVisibility(View.VISIBLE);
+            bricks[height].setAlpha(1);
         }
     }
 
     public void showStack(View bricks[]) {
-        for (int i = 0; i < bricks.length; i++) {
-            bricks[i].setVisibility(View.VISIBLE);
+        for (View brick : bricks) {
+            brick.setAlpha(1);
         }
     }
 
     public void showStack(View bricks[], int height) {
-        for (int i = 0; i < height; i++) {
-            bricks[i].setVisibility(View.VISIBLE);
-        }
-        for (; height < 10; height++) {
-            bricks[height].setVisibility(View.INVISIBLE);
+        showStack(bricks);
+        while (height < 10) {
+            bricks[height].setAlpha(0);
+            height++;
         }
     }
 
 
-    public Animation refreshStack(View[] bricksArray, int counter, Context context) {
+    public Animation refreshStack(final View[] bricksArray, final int counter, Context context) {
         animPut = AnimationUtils.loadAnimation(context,
                 R.anim.put_anim);
-        if (counter >= 0 && bricksArray[counter].getVisibility() == View.INVISIBLE) {
+        if (bricksArray[counter].getAlpha() != 1) {
             if (counter > 0)
                 bricksArray[counter - 1].clearAnimation();
-            bricksArray[counter].setVisibility(View.VISIBLE);
             animPut.setInterpolator(new BounceInterpolator());
             bricksArray[counter].startAnimation(animPut);
+            bricksArray[counter].setAlpha(1);
         } else {
             if (counter < 9)
                 bricksArray[counter + 1].clearAnimation();
-            bricksArray[counter].setVisibility(View.INVISIBLE);
             ReverseInterpolator reverseInterpolator = new ReverseInterpolator();
             animPut.setInterpolator(reverseInterpolator);
             bricksArray[counter].startAnimation(animPut);
+            animPut.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    bricksArray[counter].setAlpha(0.99f);
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    bricksArray[counter].setAlpha(0);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
         }
         return animPut;
     }
@@ -72,8 +85,11 @@ public class StackBricksElementsOperation {
         animPut = AnimationUtils.loadAnimation(context,
                 R.anim.put_anim);
         animPut.setInterpolator(new BounceInterpolator());
-        for (int i = 0; i <= counter; i++) {
+        int i = 0;
+        while (i <= counter) {
+            bricksArray[i].setAlpha(1);
             bricksArray[i].startAnimation(animPut);
+            i++;
         }
         return animPut;
     }

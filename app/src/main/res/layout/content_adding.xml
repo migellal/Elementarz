@@ -18,7 +18,7 @@
         layout="@layout/stack_bricks_with_tv_layout"
         android:layout_alignParentStart="true"
         android:id="@+id/includeFirstStack"
-        android:layout_below="@+id/starIV1"
+        android:layout_below="@+id/stars"
         android:layout_marginBottom="@dimen/fab_margin" />
 
     <include
@@ -27,7 +27,7 @@
         layout="@layout/stack_bricks_with_tv_layout"
         android:id="@+id/includeSecondStack"
         android:layout_toEndOf="@+id/plusTV"
-        android:layout_below="@+id/starIV4"
+        android:layout_below="@+id/stars"
         android:layout_marginBottom="@dimen/fab_margin" />
 
     <include
@@ -40,55 +40,13 @@
         android:layout_below="@+id/addingPlusBtn"
         android:layout_marginBottom="@dimen/fab_margin" />
 
-    <ImageView
+    <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/starIV1"
-        android:src="@drawable/ic_star_black_48dp"
+        layout="@layout/stars_layout"
+        android:id="@+id/stars"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:contentDescription="@string/app_name"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/starIV2"
-        android:src="@drawable/ic_star_black_48dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/starIV1"
-        android:contentDescription="@string/app_name"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/starIV3"
-        android:src="@drawable/ic_star_black_48dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/starIV2"
-        android:contentDescription="@string/app_name"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/starIV4"
-        android:src="@drawable/ic_star_black_48dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/starIV3"
-        android:contentDescription="@string/app_name"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/starIV5"
-        android:src="@drawable/ic_star_black_48dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/starIV4"
-        android:contentDescription="@string/app_name"
-        android:visibility="invisible" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"

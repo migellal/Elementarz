@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/numbersBricksLbl"
-        android:id="@+id/numbersBricksBtn"
+        android:id="@+id/bricksBtn"
         android:onClick="onClickNumbers"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -27,8 +27,8 @@
         android:text="@string/numbersCompareLbl"
         android:id="@+id/numbersCompareBtn"
         android:onClick="onClickNumbers"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/numbersOrderBtn" />
+        android:layout_below="@+id/bricksBtn"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
         android:id="@+id/numbersOrderBtn"
         android:onClick="onClickNumbers"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/numbersBricksBtn" />
+        android:layout_toEndOf="@+id/bricksBtn" />
 
     <Button
         android:layout_width="wrap_content"
@@ -54,7 +54,16 @@
         android:text="@string/adding_bricks"
         android:id="@+id/numbersAddingBricksBtn"
         android:onClick="onClickNumbers"
-        android:layout_below="@+id/numbersBricksBtn"
+        android:layout_below="@+id/numbersCompareBtn"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adding_check_bricks"
+        android:id="@+id/addingCheckBtn"
+        android:onClick="onClickNumbers"
+        android:layout_below="@+id/numbersCompareBtn"
+        android:layout_toEndOf="@+id/numbersAddingBricksBtn" />
 
 </RelativeLayout>
