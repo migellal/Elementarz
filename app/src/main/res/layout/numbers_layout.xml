@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:columnCount="3"
+    android:rowCount="4" >
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="1"
+        android:id="@+id/button1"
+        android:layout_row="0"
+        android:layout_column="0" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="2"
+        android:id="@+id/button2"
+        android:layout_row="0"
+        android:layout_column="1" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="3"
+        android:id="@+id/button3"
+        android:layout_row="0"
+        android:layout_column="2" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="4"
+        android:id="@+id/button4"
+        android:layout_row="1"
+        android:layout_column="0" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="5"
+        android:id="@+id/button5"
+        android:layout_row="1"
+        android:layout_column="1" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="6"
+        android:id="@+id/button6"
+        android:layout_row="1"
+        android:layout_column="2" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="7"
+        android:id="@+id/button7"
+        android:layout_row="2"
+        android:layout_column="0" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="8"
+        android:id="@+id/button8"
+        android:layout_row="2"
+        android:layout_column="1" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="9"
+        android:id="@+id/button9"
+        android:layout_row="2"
+        android:layout_column="2" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="0"
+        android:id="@+id/button0"
+        android:layout_row="3"
+        android:layout_column="1" />
+
+    <Button
+        style="@style/NumberBtnStyle"
+        android:text="10"
+        android:id="@+id/button10"
+        android:layout_row="3"
+        android:layout_column="2" />
+
+</GridLayout>

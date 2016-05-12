@@ -11,8 +11,6 @@
     <string name="numbersBricksLbl">Bricks</string>
     <string name="numbersCompareLbl">Compare</string>
     <string name="title_activity_numbers_compare">NumbersCompareActivity</string>
-    <string name="I">I</string>
-    <string name="line">------------------------------------------------------------------------------------------------------------------------</string>
     <string name="plusSgn">+</string>
     <string name="order">Order</string>
     <string name="title_activity_numbers_order">NumbersOrderActivity</string>
@@ -23,4 +21,8 @@
     <string name="equalSgn">=</string>
     <string name="title_activity_adding_check">AddingCheckActivity</string>
     <string name="adding_check_bricks">Adding check</string>
+    <string name="title_activity_choice">ChoiceActivity</string>
+    <string name="title_activity_choice_check">ChoiceCheckActivity</string>
+    <string name="choice">Choice</string>
+    <string name="choice_check">Choice check</string>
 </resources>

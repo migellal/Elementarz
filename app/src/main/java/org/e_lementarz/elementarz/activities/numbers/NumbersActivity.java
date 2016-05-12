@@ -26,16 +26,22 @@ public class NumbersActivity extends ElementarzNumbersActivity {
             case R.id.bricksBtn:
                 intent = new Intent(NumbersActivity.this, BricksActivity.class);
                 break;
-            case R.id.numbersOrderBtn:
+            case R.id.orderBtn:
                 intent = new Intent(NumbersActivity.this, BricksOrderActivity.class);
                 break;
-            case R.id.numbersCompareBtn:
+            case R.id.choiceBtn:
+                intent = new Intent(NumbersActivity.this, ChoiceActivity.class);
+                break;
+            case R.id.choiceCheckBtn:
+                intent = new Intent(NumbersActivity.this, ChoiceCheckActivity.class);
+                break;
+            case R.id.compareBtn:
                 intent = new Intent(NumbersActivity.this, CompareActivity.class);
                 break;
-            case R.id.numbersCompareCheckBtn:
+            case R.id.compareCheckBtn:
                 intent = new Intent(NumbersActivity.this, CompareCheckActivity.class);
                 break;
-            case R.id.numbersAddingBricksBtn:
+            case R.id.addingBricksBtn:
                 intent = new Intent(NumbersActivity.this, AddingActivity.class);
                 break;
             case R.id.addingCheckBtn:

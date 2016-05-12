@@ -88,6 +88,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.e_lementarz.elementarz.activities.numbers.NumbersActivity" />
         </activity>
+        <activity
+            android:name=".activities.numbers.ChoiceActivity"
+            android:label="@string/title_activity_choice"
+            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.numbers.NumbersActivity" />
+        </activity>
+        <activity
+            android:name=".activities.numbers.ChoiceCheckActivity"
+            android:label="@string/title_activity_choice_check"
+            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.numbers.NumbersActivity" />
+        </activity>
     </application>
 
 </manifest>
