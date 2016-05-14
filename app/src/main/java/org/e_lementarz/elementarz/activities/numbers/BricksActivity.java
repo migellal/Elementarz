@@ -53,7 +53,7 @@ public class BricksActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        nextActivity(true, BricksActivity.this, BricksOrderActivity.class);
+        nextActivity(true, BricksActivity.this);
     }
 
     @Override

@@ -74,7 +74,7 @@ public class CompareCheckActivity extends ElementarzNumbersActivity {
         nextStar(this, true);
         gameCounter++;
         if (gameCounter == 5)
-            nextActivity(true, CompareCheckActivity.this, AddingActivity.class);
+            nextActivity(true, CompareCheckActivity.this);
         else {
             stackBricksElementsOperation.hideStack(bricksLeftArray);
             stackBricksElementsOperation.hideStack(bricksRightArray);
@@ -89,7 +89,7 @@ public class CompareCheckActivity extends ElementarzNumbersActivity {
         nextStar(this, false);
         gameCounter++;
         if (gameCounter == 5)
-            nextActivity(false, CompareCheckActivity.this, AddingActivity.class);
+            nextActivity(false, CompareCheckActivity.this);
         else {
             stackBricksElementsOperation.hideStack(bricksLeftArray);
             stackBricksElementsOperation.hideStack(bricksRightArray);

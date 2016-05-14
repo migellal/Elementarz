@@ -101,7 +101,7 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
         nextStar(this, true);
         gameCounter++;
         if (gameCounter == 5)
-            nextActivity(true, AddingCheckActivity.this, NumbersActivity.class);
+            nextActivity(true, AddingCheckActivity.this);
         else {
             createReadyView();
             unFillScreen(true, true);
@@ -114,7 +114,7 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
         nextStar(this, false);
         gameCounter++;
         if (gameCounter == 5)
-            nextActivity(false, AddingCheckActivity.this, NumbersActivity.class);
+            nextActivity(false, AddingCheckActivity.this);
         else {
             createReadyView();
             unFillScreen(false, true);

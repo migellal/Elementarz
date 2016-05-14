@@ -17,8 +17,7 @@ public class CompareActivity extends ElementarzNumbersActivity {
 
     private int counterLeft = 0;
     private int counterRight = 0;
-    private boolean firstChangeDone = true;
-    private boolean firstChangeUndone = true;
+    private boolean firstChange = true;
     private boolean nextActivity = false;
     private View[] bricksLeftArray;
     private View[] bricksRightArray;
@@ -66,16 +65,19 @@ public class CompareActivity extends ElementarzNumbersActivity {
                 }
                 break;
         }
-        if (counterLeft != counterRight && firstChangeUndone) {
+        if (firstChange && counterLeft != counterRight) {
+            morphingAnimation.animFab(R.drawable.ic_line_to_undone, R.color.colorFailureRed);
+        }
+        else if (firstChange && counterLeft == counterRight) {
+            morphingAnimation.animFab(R.drawable.ic_line_to_done, R.color.colorSuccessGreen);
+        }
+        else if (!firstChange && counterLeft != counterRight) {
             morphingAnimation.animFab(R.drawable.ic_done_to_undone, R.color.colorFailureRed);
-            firstChangeUndone = false;
-            firstChangeDone = true;
         }
-        if (counterLeft == counterRight && firstChangeDone) {
+        else if (!firstChange && counterLeft == counterRight) {
             morphingAnimation.animFab(R.drawable.ic_undone_to_done, R.color.colorSuccessGreen);
-            firstChangeDone = false;
-            firstChangeUndone = true;
         }
+        firstChange=false;
     }
 
     @Override
@@ -83,7 +85,7 @@ public class CompareActivity extends ElementarzNumbersActivity {
     public void onClickFab() {
         if(nextActivity)
             onClickSuccessView();
-        else if(!firstChangeDone&&firstChangeUndone)
+        else if(counterLeft==counterRight)
         {
             fillScreen(true, false);
             nextActivity = true;
@@ -93,7 +95,7 @@ public class CompareActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        nextActivity(true, CompareActivity.this, CompareCheckActivity.class);
+        nextActivity(true, CompareActivity.this);
     }
 
 

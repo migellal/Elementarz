@@ -19,6 +19,7 @@ public class MorphingAnimation {
     private Context context;
     private FloatingActionButton floatingActionButton;
     private ImageView imageView;
+    private int previousAnim = -1;
 
     public MorphingAnimation(Context context, FloatingActionButton floatingActionButton) {
         this.context = context;
@@ -42,19 +43,45 @@ public class MorphingAnimation {
         animatable.start();
     }
 
-    /**
-     * Default color - success green
-     * */
+    public void animFab(int resId, int color) {
+        if(currentShapeIsDifferent(resId)) {
+            animFab(resId);
+            floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(color));
+            previousAnim=resId;
+        }
+    }
 
-    public void animFab(int resId) {
+    public void animFab(int resId, int color, boolean onlyChange) {
+        if((onlyChange&&currentShapeIsDifferent(resId)) || (!onlyChange)) {
+            animFab(resId);
+            floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(color));
+        }
+    }
+
+    private void animFab(int resId) {
         final Animatable icon = (Animatable) ResourcesCompat.getDrawable(context, resId);
         floatingActionButton.setImageDrawable((Drawable) icon);
         icon.start();
-        floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(R.color.colorSuccessGreen));
     }
 
-    public void animFab(int resId, int color) {
-        animFab(resId);
-        floatingActionButton.setBackgroundTintList(context.getResources().getColorStateList(color));
+    private boolean currentShapeIsDifferent(int resId)
+    {
+        if(resId==previousAnim)
+            return false;
+        else
+        {
+            int pAnim = previousAnim;
+            previousAnim = resId;
+            if(resId==R.drawable.ic_line_to_undone&&pAnim==R.drawable.ic_done_to_undone)
+                return false;
+            else if(pAnim==R.drawable.ic_line_to_undone&&resId==R.drawable.ic_done_to_undone)
+                return false;
+            else if(resId==R.drawable.ic_line_to_done&&pAnim==R.drawable.ic_undone_to_done)
+                return false;
+            else if(pAnim==R.drawable.ic_line_to_done&&resId==R.drawable.ic_undone_to_done)
+                return false;
+            else
+                return true;
+        }
     }
 }

@@ -22,7 +22,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/brick</item>
-        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_margin">2dp</item>
         <item name="android:alpha">0</item>
     </style>
 
@@ -38,15 +38,15 @@
         <item name="android:layout_weight">1</item>
     </style>
 
-    // line to done
+    <!--line to done-->
     <string name="path_line">M22,12 L18,8 L18,11 L3,11 L3,13 L18,13 L18,16 Z</string>
     <string name="path_done">M9,16.2 L4.8,12 L3.4,13.4 L9,19 L21,7 L19.6,5.6 L9,16.2 Z</string>
 
-    // line to undone
+    <!--line to undone-->
     <string name="path_line_tou">M22,12 L18,8 L18,8 L18,11 L18,11 L3,11 L3,11 L3,13 L3,13 L18,13 L18,13 L18,16 Z</string>
     <string name="path_undone_tol">M19,6.41 L17.59,5 L12,10.59 L6.41,5 L5,6.41 L10.59,12 L5,17.59  L6.41,19  L12,13.41 L17.59,19 L19,17.59 L13.41,12 Z</string>
 
-    // undone to repeat
+    <!--undone to repeat-->
     <string name="path_undone">M 19.0,6.41 L 17.59,5.0 L 12.0,10.59 L 6.41,5.0 L 5.0,6.41 L 10.59,12.0 L 5.0,17.59 L 6.41,19.0 L 12.0,13.41 v 0.0 l 0.0,0.0 l 0.0,0.0 v 0.0 c 0.0,0.0,0.0,0.0,0.0,0.0 c 0.0,0.0,0.0,0.0,0.0,0.0 L 17.59,19.0 c 0.0,0.0,0.0,0.0,0.0,0.0 c 0.0,0.0,0.0,0.0,0.0,0.0 L 19.0,17.59 m 0.0,0.0 L 13.41,12.0 c 0.0,0.0,0.0,0.0,0.0,0.0 c 0.0,0.0,0.0,0.0,0.0,0.0 v 0.0 l 0.0,0.0 l 0.0,0.0 v 0.0 c 0.0,0.0,0.0,0.0,0.0,0.0 c 0.0,0.0,0.0,0.0,0.0,0.0 L 19.0,6.41 Z</string>
     <string name="path_repeat">M 12.0,6.0 L 12.0,6.0 L 12.0,6.0 L 12.0,6.0 L 12.0,6.0 L 12.0,6.0 L 12.0,6.0 L 12.0,6.0 L 12.0,6.0 v 3.0 l 4.0,-4.0 l -4.0,-4.0 v 3.0 c -4.42,0.0,-8.0,3.58,-8.0,8.0 c 0.0,1.57,0.46,3.03,1.24,4.26 L 6.7,14.8 c -0.45,-0.83,-0.7,-1.79,-0.7,-2.8 c 0.0,-3.31,2.69,-6.0,6.0,-6.0 L 12.0,6.0 m 6.76,1.74 L 17.3,9.2 c 0.44,0.84,0.7,1.79,0.7,2.8 c 0.0,3.31,-2.69,6.0,-6.0,6.0 v -3.0 l -4.0,4.0 l 4.0,4.0 v -3.0 c 4.42,0.0,8.0,-3.58,8.0,-8.0 c 0.0,-1.57,-0.46,-3.03,-1.24,-4.26 L 18.76,7.74 Z</string>
 

@@ -75,14 +75,7 @@ public class AddingActivity extends ElementarzNumbersActivity {
             stackBricksElementsOperation.refreshStack(bricksResultArray, counter, getApplicationContext());
             counter++;
             stackBricksElementsOperation.refreshText(resultStackCounterTV, counter);
-            if (counter != result && firstChange) {
-                morphingAnimation.animFab(R.drawable.ic_done_to_undone, R.color.colorFailureRed);
-                firstChange = false;
-            }
-            if (counter == result) {
-                morphingAnimation.animFab(R.drawable.ic_undone_to_done, R.color.colorSuccessGreen);
-                firstChange = true;
-            }
+            changeFab();
         }
     }
 
@@ -92,21 +85,14 @@ public class AddingActivity extends ElementarzNumbersActivity {
             counter--;
             stackBricksElementsOperation.refreshStack(bricksResultArray, counter, getApplicationContext());
             stackBricksElementsOperation.refreshText(resultStackCounterTV, counter);
-            if (counter != result && firstChange) {
-                morphingAnimation.animFab(R.drawable.ic_done_to_undone, R.color.colorFailureRed);
-                firstChange = false;
-            }
-            if (counter == result) {
-                morphingAnimation.animFab(R.drawable.ic_undone_to_done, R.color.colorSuccessGreen);
-                firstChange = true;
-            }
+            changeFab();
         }
     }
 
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        nextActivity(true, AddingActivity.this, AddingCheckActivity.class);
+        nextActivity(true, AddingActivity.this);
     }
 
     @Override
@@ -125,5 +111,18 @@ public class AddingActivity extends ElementarzNumbersActivity {
         bricksSecondArray = stackBricksElementsCreator.createBricksStack(includeSecondStack, secondRand);
         bricksResultArray = stackBricksElementsCreator.createBricksStack(includeResultStack);
         createReadyView();
+    }
+
+    private void changeFab()
+    {
+        if (firstChange && counter == result)
+            morphingAnimation.animFab(R.drawable.ic_line_to_done, R.color.colorSuccessGreen);
+        else if (firstChange && counter != result)
+            morphingAnimation.animFab(R.drawable.ic_line_to_undone, R.color.colorFailureRed);
+        else if (!firstChange && counter == result)
+            morphingAnimation.animFab(R.drawable.ic_undone_to_done, R.color.colorSuccessGreen);
+        else if (!firstChange && counter != result)
+            morphingAnimation.animFab(R.drawable.ic_done_to_undone, R.color.colorFailureRed);
+        firstChange = false;
     }
 }

@@ -10,15 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="org.e_lementarz.elementarz.activities.numbers.ChoiceActivity"
-    tools:showIn="@layout/activity_choice">
+    tools:showIn="@layout/activity_choice"
+    android:id="@+id/content_choice">
 
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        layout="@layout/stack_bricks_layout"
+        layout="@layout/stack_bricks_with_tv_layout"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/include" />
+        android:id="@+id/stack_container"
+        android:layout_toStartOf="@+id/equalsTV" />
 
     <include
         android:layout_width="wrap_content"
@@ -27,4 +29,20 @@
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true"
         android:id="@+id/include" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/equalSgn"
+        android:id="@+id/equalsTV"
+        android:layout_centerVertical="true"
+        android:textSize="50sp"
+        android:layout_toStartOf="@+id/include" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/stars_layout"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/include" />
 </RelativeLayout>

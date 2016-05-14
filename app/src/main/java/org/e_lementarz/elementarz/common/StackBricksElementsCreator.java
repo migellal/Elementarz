@@ -34,8 +34,8 @@ public class StackBricksElementsCreator {
 
     public View[] createBricksStack(View container, int height) {
         View[] v = createBricksStack(container);
-        for (int i = 0; i < height; i++)
-            v[i].setAlpha(1);
+        StackBricksElementsOperation stackBricksElementsOperation = new StackBricksElementsOperation();
+        stackBricksElementsOperation.showStack(v, height);
         return v;
     }
 

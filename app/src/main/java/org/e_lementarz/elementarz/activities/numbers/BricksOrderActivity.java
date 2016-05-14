@@ -47,7 +47,7 @@ public class BricksOrderActivity extends ElementarzNumbersActivity implements El
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        nextActivity(true, BricksOrderActivity.this, CompareActivity.class);
+        nextActivity(true, BricksOrderActivity.this);
     }
 
     @Override

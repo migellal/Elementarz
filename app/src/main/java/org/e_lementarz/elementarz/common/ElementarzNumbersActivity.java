@@ -22,6 +22,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.activities.MenuActivity;
+import org.e_lementarz.elementarz.activities.numbers.AddingActivity;
+import org.e_lementarz.elementarz.activities.numbers.AddingCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.BricksActivity;
+import org.e_lementarz.elementarz.activities.numbers.BricksOrderActivity;
+import org.e_lementarz.elementarz.activities.numbers.ChoiceActivity;
+import org.e_lementarz.elementarz.activities.numbers.ChoiceCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.CompareActivity;
+import org.e_lementarz.elementarz.activities.numbers.CompareCheckActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -62,7 +71,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
             anim = ViewAnimationUtils.createCircularReveal(layoutSuccess, centerX, centerY, startRadius, endRadius);
             layoutSuccess.setVisibility(View.VISIBLE);
             if(animMorph)
-                morphingAnimation.animFab(R.drawable.ic_line_to_done);
+                morphingAnimation.animFab(R.drawable.ic_line_to_done, R.color.colorSuccessGreen);
         } else {
             anim = ViewAnimationUtils.createCircularReveal(layoutFailure, centerX, centerY, startRadius, endRadius);
             layoutFailure.setVisibility(View.VISIBLE);
@@ -105,7 +114,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
         return anim;
     }
 
-    public void nextActivity(boolean success, final Context packageContext, final Class<?> cls) {
+    public void nextActivity(boolean success, final Context packageContext) {
         ValueAnimator colorAnim;
         if(success) {
             MorphingAnimation morphingAnimation = new MorphingAnimation(getApplicationContext(), fab, successView);
@@ -129,7 +138,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                Intent intent = new Intent(packageContext, cls);
+                Intent intent = new Intent(packageContext, getNextActivity(packageContext));
                 startActivity(intent);
                 overridePendingTransition(0, 0);
                 finish();
@@ -180,6 +189,26 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
         startRadius = 0;
         double valueToSqrt = Math.pow((double) centerX, 2) + Math.pow((double) centerY, 2);
         endRadius = (int) Math.sqrt(valueToSqrt);
+    }
+
+    private Class getNextActivity(Context context)
+    {
+        if(context.getClass().equals(BricksActivity.class))
+            return BricksOrderActivity.class;
+        else if(context.getClass().equals(BricksOrderActivity.class))
+            return ChoiceActivity.class;
+        else if(context.getClass().equals(ChoiceActivity.class))
+            return ChoiceCheckActivity.class;
+        else if(context.getClass().equals(ChoiceCheckActivity.class))
+            return CompareActivity.class;
+        else if(context.getClass().equals(CompareActivity.class))
+            return CompareCheckActivity.class;
+        else if(context.getClass().equals(CompareCheckActivity.class))
+            return AddingActivity.class;
+        else if(context.getClass().equals(AddingActivity.class))
+            return AddingCheckActivity.class;
+        else
+            return MenuActivity.class;
     }
 
     public FloatingActionButton getFab() {
