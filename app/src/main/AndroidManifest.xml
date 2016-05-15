@@ -106,6 +106,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.e_lementarz.elementarz.activities.numbers.NumbersActivity" />
         </activity>
+        <activity
+            android:name=".activities.numbers.NumbersPracticeActivity"
+            android:label="@string/title_activity_numbers_practice"
+            android:parentActivityName=".activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.MenuActivity" />
+        </activity>
     </application>
 
 </manifest>

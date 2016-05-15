@@ -10,6 +10,7 @@ import android.view.View;
 
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.activities.numbers.NumbersActivity;
+import org.e_lementarz.elementarz.activities.numbers.NumbersPracticeActivity;
 import org.e_lementarz.elementarz.activities.words.WordsActivity;
 
 public class MenuActivity extends AppCompatActivity {
@@ -49,6 +50,9 @@ public class MenuActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.numbersBtn:
                 intent = new Intent(MenuActivity.this, NumbersActivity.class);
+                break;
+            case R.id.numbersPracticeBtn:
+                intent = new Intent(MenuActivity.this, NumbersPracticeActivity.class);
                 break;
             case R.id.wordsBtn:
                 intent = new Intent(MenuActivity.this, WordsActivity.class);

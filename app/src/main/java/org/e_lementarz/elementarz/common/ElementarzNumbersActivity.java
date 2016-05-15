@@ -52,9 +52,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
     ImageView failureView;
 
     int centerX, centerY, startRadius, endRadius;
-    ImageView[] stars;
-    boolean starsContainerCreated = false;
-    int starsCounter = 0;
+    private boolean practice = false;
 
     public void startAnim(Activity rootContainer, int layoutID) {
         View view = rootContainer.findViewById(layoutID);
@@ -70,12 +68,12 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
         if (success) {
             anim = ViewAnimationUtils.createCircularReveal(layoutSuccess, centerX, centerY, startRadius, endRadius);
             layoutSuccess.setVisibility(View.VISIBLE);
-            if(animMorph)
+            if (animMorph)
                 morphingAnimation.animFab(R.drawable.ic_line_to_done, R.color.colorSuccessGreen);
         } else {
             anim = ViewAnimationUtils.createCircularReveal(layoutFailure, centerX, centerY, startRadius, endRadius);
             layoutFailure.setVisibility(View.VISIBLE);
-            if(animMorph)
+            if (animMorph)
                 morphingAnimation.animFab(R.drawable.ic_line_to_undone, R.color.colorFailureRed);
         }
         anim.setDuration(Const.ANIM_LONG);
@@ -95,7 +93,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
                     layoutSuccess.setVisibility(View.GONE);
                 }
             });
-            if(animMorph)
+            if (animMorph)
                 morphingAnimation.animFab(R.drawable.ic_done_to_line, R.color.colorAccent);
         } else {
             anim = ViewAnimationUtils.createCircularReveal(layoutFailure, centerX, centerY, endRadius, startRadius);
@@ -106,7 +104,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
                     layoutFailure.setVisibility(View.GONE);
                 }
             });
-            if(animMorph)
+            if (animMorph)
                 morphingAnimation.animFab(R.drawable.ic_undone_to_line, R.color.colorAccent);
         }
         anim.setDuration(Const.ANIM_LONG);
@@ -116,15 +114,13 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
 
     public void nextActivity(boolean success, final Context packageContext) {
         ValueAnimator colorAnim;
-        if(success) {
+        if (success) {
             MorphingAnimation morphingAnimation = new MorphingAnimation(getApplicationContext(), fab, successView);
             morphingAnimation.animImageView(R.drawable.ic_done_to_line);
             morphingAnimation.animFab(R.drawable.ic_done_to_line, R.color.colorAccent);
             colorAnim = ObjectAnimator.ofInt(layoutSuccess, "backgroundColor",
                     getResources().getColor(R.color.colorSuccessGreen), getResources().getColor(R.color.icons));
-        }
-        else
-        {
+        } else {
             MorphingAnimation morphingAnimation = new MorphingAnimation(getApplicationContext(), fab, failureView);
             morphingAnimation.animImageView(R.drawable.ic_undone_to_line);
             morphingAnimation.animFab(R.drawable.ic_undone_to_line, R.color.colorAccent);
@@ -146,23 +142,6 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
         });
     }
 
-    public void nextStar(Activity rootContainer, boolean good)
-    {
-        if(!starsContainerCreated) {
-            ImageView star1 = (ImageView) rootContainer.findViewById(R.id.starIV1);
-            ImageView star2 = (ImageView) rootContainer.findViewById(R.id.starIV2);
-            ImageView star3 = (ImageView) rootContainer.findViewById(R.id.starIV3);
-            ImageView star4 = (ImageView) rootContainer.findViewById(R.id.starIV4);
-            ImageView star5 = (ImageView) rootContainer.findViewById(R.id.starIV5);
-            stars = new ImageView[]{star1, star2, star3, star4, star5};
-            starsContainerCreated = true;
-        }
-        if (!good)
-            stars[starsCounter].setImageResource(R.drawable.ic_star_border_black_48dp);
-        stars[starsCounter].setVisibility(View.VISIBLE);
-        starsCounter++;
-    }
-
 
     public void createViews() {
         setNaviBarColor();
@@ -172,6 +151,8 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Intent intent = getIntent();
+        practice = intent.getBooleanExtra(Const.PRACTICE, false);
     }
 
     private void setNaviBarColor() {
@@ -191,21 +172,20 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
         endRadius = (int) Math.sqrt(valueToSqrt);
     }
 
-    private Class getNextActivity(Context context)
-    {
-        if(context.getClass().equals(BricksActivity.class))
+    private Class getNextActivity(Context context) {
+        if (context.getClass().equals(BricksActivity.class))
             return BricksOrderActivity.class;
-        else if(context.getClass().equals(BricksOrderActivity.class))
+        else if (context.getClass().equals(BricksOrderActivity.class))
             return ChoiceActivity.class;
-        else if(context.getClass().equals(ChoiceActivity.class))
+        else if (context.getClass().equals(ChoiceActivity.class))
             return ChoiceCheckActivity.class;
-        else if(context.getClass().equals(ChoiceCheckActivity.class))
+        else if (context.getClass().equals(ChoiceCheckActivity.class))
             return CompareActivity.class;
-        else if(context.getClass().equals(CompareActivity.class))
+        else if (context.getClass().equals(CompareActivity.class))
             return CompareCheckActivity.class;
-        else if(context.getClass().equals(CompareCheckActivity.class))
+        else if (context.getClass().equals(CompareCheckActivity.class))
             return AddingActivity.class;
-        else if(context.getClass().equals(AddingActivity.class))
+        else if (context.getClass().equals(AddingActivity.class))
             return AddingCheckActivity.class;
         else
             return MenuActivity.class;
@@ -249,5 +229,13 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
 
     public void setFailureView(ImageView failureView) {
         this.failureView = failureView;
+    }
+
+    public boolean isPractice() {
+        return practice;
+    }
+
+    public void setPractice(boolean practice) {
+        this.practice = practice;
     }
 }

@@ -24,6 +24,13 @@
     <include
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        layout="@layout/counter_layout"
+        android:layout_above="@+id/includeLeftStack"
+        android:layout_centerHorizontal="true" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         layout="@layout/stack_bricks_with_tv_layout"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="15dp"

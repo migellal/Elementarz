@@ -45,4 +45,11 @@
         layout="@layout/stars_layout"
         android:layout_alignParentTop="true"
         android:layout_alignEnd="@+id/include" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        layout="@layout/counter_layout"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/include" />
 </RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:id="@+id/counter_layout" android:visibility="invisible">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counterDoneIV"
+        android:src="@drawable/ic_done_black_48dp"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zero"
+        android:textSize="40sp"
+        android:textColor="@color/colorSuccessGreen"
+        android:id="@+id/counterDoneTV" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counterUndoneIV"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/ic_clear_black_48dp"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zero"
+        android:textSize="40sp"
+        android:textColor="@color/colorFailureRed"
+        android:id="@+id/counterUndoneTV" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/counterTimerIV"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/ic_access_time_black_48dp"
+        android:contentDescription="@string/app_name" />
+
+</LinearLayout>

@@ -13,4 +13,6 @@ public class Const {
     public static final Integer ANIM_LONG = 500;
     public static final Integer ANIM_LOOONG = 1000;
 
+    public static final String PRACTICE = "PRACTICE";
+
 }

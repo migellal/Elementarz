@@ -8,37 +8,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activities.MenuActivity"
-    tools:showIn="@layout/activity_menu">
-
+    tools:context="org.e_lementarz.elementarz.activities.numbers.NumbersPracticeActivity"
+    tools:showIn="@layout/activity_numbers_practice">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/numbersLbl"
-        android:id="@+id/numbersBtn"
-        android:onClick="onClickMenu"
-        android:layout_alignParentTop="true"
+        android:text="@string/compareCheck"
+        android:id="@+id/compareCheckBtn"
+        android:onClick="onClickNumbers"
+        android:layout_below="@+id/choiceCheckBtn"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/wordsLbl"
-        android:id="@+id/wordsBtn"
-        android:onClick="onClickMenu"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:text="@string/adding_check_bricks"
+        android:id="@+id/addingCheckBtn"
+        android:onClick="onClickNumbers"
+        android:layout_below="@+id/compareCheckBtn"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/numbersPracticeLbl"
-        android:id="@+id/numbersPracticeBtn"
-        android:onClick="onClickMenu"
-        android:layout_below="@+id/numbersBtn"
+        android:text="@string/choice_check"
+        android:id="@+id/choiceCheckBtn"
+        android:onClick="onClickNumbers"
+        android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
-
 </RelativeLayout>

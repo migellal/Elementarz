@@ -25,4 +25,7 @@
     <string name="title_activity_choice_check">ChoiceCheckActivity</string>
     <string name="choice">Choice</string>
     <string name="choice_check">Choice check</string>
+    <string name="zero">0</string>
+    <string name="numbersPracticeLbl">Numbers practice</string>
+    <string name="title_activity_numbers_practice">NumbersPracticeActivity</string>
 </resources>

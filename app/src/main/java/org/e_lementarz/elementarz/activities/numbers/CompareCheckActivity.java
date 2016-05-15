@@ -6,9 +6,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.common.CounterOperation;
 import org.e_lementarz.elementarz.common.ElementarzNumbersActivity;
 import org.e_lementarz.elementarz.common.StackBricksElementsCreator;
 import org.e_lementarz.elementarz.common.StackBricksElementsOperation;
+import org.e_lementarz.elementarz.common.StarsOperation;
 
 import java.util.Random;
 
@@ -27,6 +29,8 @@ public class CompareCheckActivity extends ElementarzNumbersActivity {
     private TextView rightStackCounterTV;
     private StackBricksElementsCreator stackBricksElementsCreator = new StackBricksElementsCreator();
     private StackBricksElementsOperation stackBricksElementsOperation = new StackBricksElementsOperation();
+    private StarsOperation starsOperation;
+    private CounterOperation counterOperation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,31 +75,49 @@ public class CompareCheckActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        nextStar(this, true);
-        gameCounter++;
-        if (gameCounter == 5)
-            nextActivity(true, CompareCheckActivity.this);
-        else {
+        if (isPractice()) {
             stackBricksElementsOperation.hideStack(bricksLeftArray);
             stackBricksElementsOperation.hideStack(bricksRightArray);
             createReadyView();
-            screenFiled = false;
+            counterOperation.count(true);
             unFillScreen(true, true);
+            screenFiled = false;
+        } else {
+            starsOperation.nextStar(true);
+            gameCounter++;
+            if (gameCounter == 5)
+                nextActivity(true, CompareCheckActivity.this);
+            else {
+                stackBricksElementsOperation.hideStack(bricksLeftArray);
+                stackBricksElementsOperation.hideStack(bricksRightArray);
+                createReadyView();
+                screenFiled = false;
+                unFillScreen(true, true);
+            }
         }
     }
 
     @OnClick(R.id.failureView)
     void onClickFailureView() {
-        nextStar(this, false);
-        gameCounter++;
-        if (gameCounter == 5)
-            nextActivity(false, CompareCheckActivity.this);
-        else {
+        if (isPractice()) {
             stackBricksElementsOperation.hideStack(bricksLeftArray);
             stackBricksElementsOperation.hideStack(bricksRightArray);
             createReadyView();
-            screenFiled = false;
+            counterOperation.count(false);
             unFillScreen(false, true);
+            screenFiled = false;
+        } else {
+            starsOperation.nextStar(false);
+            gameCounter++;
+            if (gameCounter == 5)
+                nextActivity(false, CompareCheckActivity.this);
+            else {
+                stackBricksElementsOperation.hideStack(bricksLeftArray);
+                stackBricksElementsOperation.hideStack(bricksRightArray);
+                createReadyView();
+                screenFiled = false;
+                unFillScreen(false, true);
+            }
         }
     }
 
@@ -148,6 +170,10 @@ public class CompareCheckActivity extends ElementarzNumbersActivity {
         assert stackBricksContainerRight != null;
         leftStackCounterTV = (TextView) stackBricksContainerLeft.findViewById(R.id.bricksTV);
         rightStackCounterTV = (TextView) stackBricksContainerRight.findViewById(R.id.bricksTV);
+        if (isPractice())
+            counterOperation = new CounterOperation(this);
+        else
+            starsOperation = new StarsOperation(this);
         createReadyView();
     }
 }
