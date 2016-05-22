@@ -15,7 +15,7 @@ public abstract class ElementarzNumbersCheckActivity extends ElementarzNumbersAc
 
     private Operation operation;
     private CounterOperation counterOperation;
-    private boolean filledScreen = false;
+    private boolean isClicked = false;
 
     public void createViews() {
         super.createViews();
@@ -23,9 +23,10 @@ public abstract class ElementarzNumbersCheckActivity extends ElementarzNumbersAc
         Intent intent = getIntent();
         setPractice(intent.getBooleanExtra(Const.PRACTICE, false));
         setTest(intent.getBooleanExtra(Const.TEST, false));
+        setCustom(intent.getBooleanExtra(Const.CUSTOM, false));
         if (isPractice())
             operation = new CounterOperation(this);
-        else if (isTest()) {
+        else if (isTest()||isCustom()) {
             operation = new CounterOperation(this, getIntent());
             counterOperation = new CounterOperation(this, getIntent());
         } else
@@ -33,8 +34,8 @@ public abstract class ElementarzNumbersCheckActivity extends ElementarzNumbersAc
     }
 
     public void startTime() {
-        if (isTest()) {
-            filledScreen = false;
+        if (isTest()||isCustom()) {
+            isClicked = false;
             counterOperation.startTime().setAnimationListener(new Animation.AnimationListener() {
                 @Override
                 public void onAnimationStart(Animation animation) {
@@ -42,7 +43,7 @@ public abstract class ElementarzNumbersCheckActivity extends ElementarzNumbersAc
 
                 @Override
                 public void onAnimationEnd(Animation animation) {
-                    if (!filledScreen)
+                    if (!isClicked)
                         fillScreen(false, true);
                 }
 
@@ -55,9 +56,9 @@ public abstract class ElementarzNumbersCheckActivity extends ElementarzNumbersAc
     }
 
     public void stopTime() {
-        if (isTest())
+        if (isTest()||isCustom())
             counterOperation.stopTime();
-        filledScreen = true;
+        isClicked = true;
     }
 
     public abstract void onClickFailureView();

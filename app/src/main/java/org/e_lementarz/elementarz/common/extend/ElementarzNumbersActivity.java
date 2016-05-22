@@ -58,6 +58,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
     private int centerX, centerY, startRadius, endRadius;
     private boolean practice = false;
     private boolean test = false;
+    private boolean custom = false;
     private boolean screenFiled = false;
 
     public void startAnim(Activity rootContainer, int layoutID) {
@@ -179,7 +180,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
     }
 
     private Class getNextActivity(Context context) {
-        if(test)
+        if(test||custom)
             return NumbersResultActivity.class;
         else if (context.getClass().equals(BricksActivity.class))
             return BricksOrderActivity.class;
@@ -261,5 +262,13 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
 
     public void setScreenFiled(boolean screenFiled) {
         this.screenFiled = screenFiled;
+    }
+
+    public boolean isCustom() {
+        return custom;
+    }
+
+    public void setCustom(boolean custom) {
+        this.custom = custom;
     }
 }

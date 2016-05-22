@@ -16,6 +16,11 @@ public class Const {
     public static final String PRACTICE = "PRACTICE";
     public static final String TEST = "TEST";
     public static final String CLASS = "CLASS";
+    public static final String CUSTOM = "CUSTOM";
+
+    public static final String CUSTOM_TIME = "CUSTOM_TIME";
+    public static final String CUSTOM_GOOD_ANSWER = "CUSTOM_GOOD_ANSWER";
+    public static final String CUSTOM_BAD_ANSWER = "CUSTOM_BAD_ANSWER";
 
     public static final Integer STARS_ANSWER_COUNTER = 5;
 

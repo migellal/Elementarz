@@ -50,4 +50,13 @@
         android:layout_below="@+id/numbersPracticeBtn"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numbersCustomLbl"
+        android:id="@+id/numbersCustomBtn"
+        android:onClick="onClickMenu"
+        android:layout_below="@+id/numbersTestBtn"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

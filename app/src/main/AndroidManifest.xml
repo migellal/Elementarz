@@ -133,6 +133,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.e_lementarz.elementarz.activities.MenuActivity" />
         </activity>
+        <activity
+            android:name=".activities.numbers.mainly.NumbersCustomActivity"
+            android:label="@string/title_activity_numbers_custom"
+            android:parentActivityName=".activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.MenuActivity" />
+        </activity>
     </application>
 
 </manifest>

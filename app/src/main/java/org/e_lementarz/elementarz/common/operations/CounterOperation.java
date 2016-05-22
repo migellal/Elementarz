@@ -40,7 +40,7 @@ public class CounterOperation implements Operation {
     public CounterOperation(Activity rootContainer, Intent intent) {
         this(rootContainer);
         timer.setVisibility(View.VISIBLE);
-        getTestClass(intent);
+        getData(intent);
         practice = false;
         animation = new ScaleAnimation(1f, 0f, 1f, 0f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
@@ -77,20 +77,28 @@ public class CounterOperation implements Operation {
             animation.cancel();
     }
 
-    private void getTestClass(Intent intent) {
-        int c = intent.getIntExtra(Const.CLASS, 0);
-        if (c == 1) {
-            time = Const.I_CLASS_TIME;
-            goodAnswer = Const.I_CLASS_GOOD_ANSWER;
-            badAnswer = Const.I_CLASS_BAD_ANSWER;
-        } else if (c == 2) {
-            time = Const.II_CLASS_TIME;
-            goodAnswer = Const.II_CLASS_GOOD_ANSWER;
-            badAnswer = Const.II_CLASS_BAD_ANSWER;
-        } else {
-            time = Const.III_CLASS_TIME;
-            goodAnswer = Const.III_CLASS_GOOD_ANSWER;
-            badAnswer = Const.III_CLASS_BAD_ANSWER;
+    private void getData(Intent intent) {
+        boolean test = intent.getBooleanExtra(Const.TEST, false);
+        if(test) {
+            int c = intent.getIntExtra(Const.CLASS, 0);
+            if (c == 1) {
+                time = Const.I_CLASS_TIME;
+                goodAnswer = Const.I_CLASS_GOOD_ANSWER;
+                badAnswer = Const.I_CLASS_BAD_ANSWER;
+            } else if (c == 2) {
+                time = Const.II_CLASS_TIME;
+                goodAnswer = Const.II_CLASS_GOOD_ANSWER;
+                badAnswer = Const.II_CLASS_BAD_ANSWER;
+            } else {
+                time = Const.III_CLASS_TIME;
+                goodAnswer = Const.III_CLASS_GOOD_ANSWER;
+                badAnswer = Const.III_CLASS_BAD_ANSWER;
+            }
+        }
+        else {
+            time = intent.getIntExtra(Const.CUSTOM_TIME, 0);
+            goodAnswer = intent.getIntExtra(Const.CUSTOM_GOOD_ANSWER, 0);
+            badAnswer = intent.getIntExtra(Const.CUSTOM_BAD_ANSWER, 0);
         }
     }
 

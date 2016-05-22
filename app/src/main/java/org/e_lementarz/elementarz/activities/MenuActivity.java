@@ -10,6 +10,7 @@ import android.view.View;
 
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersActivity;
+import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersCustomActivity;
 import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersPracticeActivity;
 import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersTestActivity;
 import org.e_lementarz.elementarz.activities.words.WordsActivity;
@@ -57,6 +58,9 @@ public class MenuActivity extends AppCompatActivity {
                 break;
             case R.id.numbersTestBtn:
                 intent = new Intent(MenuActivity.this, NumbersTestActivity.class);
+                break;
+            case R.id.numbersCustomBtn:
+                intent = new Intent(MenuActivity.this, NumbersCustomActivity.class);
                 break;
             case R.id.wordsBtn:
                 intent = new Intent(MenuActivity.this, WordsActivity.class);
