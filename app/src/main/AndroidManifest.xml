@@ -28,7 +28,7 @@
                 android:value=".activities.MenuActivity" />
         </activity>
         <activity
-            android:name=".activities.numbers.NumbersActivity"
+            android:name=".activities.numbers.mainly.NumbersActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -38,20 +38,20 @@
         <activity
             android:name=".activities.numbers.BricksActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.numbers.NumbersActivity" />
+                android:value=".activities.numbers.mainly.NumbersActivity" />
         </activity>
         <activity
             android:name=".activities.numbers.CompareActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.numbers.NumbersActivity" />
+                android:value=".activities.numbers.mainly.NumbersActivity" />
         </activity>
         <activity
             android:name=".activities.numbers.BricksOrderActivity"
@@ -59,56 +59,74 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.numbers.NumbersActivity" />
+                android:value=".activities.numbers.mainly.NumbersActivity" />
         </activity>
         <activity
             android:name=".activities.numbers.CompareCheckActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.numbers.NumbersActivity" />
+                android:value=".activities.numbers.mainly.NumbersActivity" />
         </activity>
         <activity
             android:name=".activities.numbers.AddingActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.numbers.NumbersActivity" />
+                android:value=".activities.numbers.mainly.NumbersActivity" />
         </activity>
         <activity
             android:name=".activities.numbers.AddingCheckActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.e_lementarz.elementarz.activities.numbers.NumbersActivity" />
+                android:value=".activities.numbers.mainly.NumbersActivity" />
         </activity>
         <activity
             android:name=".activities.numbers.ChoiceActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.e_lementarz.elementarz.activities.numbers.NumbersActivity" />
+                android:value=".activities.numbers.mainly.NumbersActivity" />
         </activity>
         <activity
             android:name=".activities.numbers.ChoiceCheckActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".activities.numbers.NumbersActivity"
+            android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.e_lementarz.elementarz.activities.numbers.NumbersActivity" />
+                android:value=".activities.numbers.mainly.NumbersActivity" />
         </activity>
         <activity
-            android:name=".activities.numbers.NumbersPracticeActivity"
+            android:name=".activities.numbers.mainly.NumbersPracticeActivity"
             android:label="@string/title_activity_numbers_practice"
+            android:parentActivityName=".activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activities.numbers.mainly.NumbersTestActivity"
+            android:label="@string/title_activity_numbers_test"
+            android:parentActivityName=".activities.MenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.e_lementarz.elementarz.activities.MenuActivity" />
+        </activity>
+        <activity
+            android:name=".activities.numbers.mainly.NumbersResultActivity"
+            android:label="@string/title_activity_numbers_result"
             android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

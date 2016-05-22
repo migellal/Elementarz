@@ -1,4 +1,4 @@
-package org.e_lementarz.elementarz.common;
+package org.e_lementarz.elementarz.common.extend;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -31,6 +31,10 @@ import org.e_lementarz.elementarz.activities.numbers.ChoiceActivity;
 import org.e_lementarz.elementarz.activities.numbers.ChoiceCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.CompareActivity;
 import org.e_lementarz.elementarz.activities.numbers.CompareCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersResultActivity;
+import org.e_lementarz.elementarz.common.Const;
+import org.e_lementarz.elementarz.common.interfaces.ElementarzNumbersHelper;
+import org.e_lementarz.elementarz.common.operations.MorphingAnimation;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -51,8 +55,10 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
     @Bind(R.id.failureView)
     ImageView failureView;
 
-    int centerX, centerY, startRadius, endRadius;
+    private int centerX, centerY, startRadius, endRadius;
     private boolean practice = false;
+    private boolean test = false;
+    private boolean screenFiled = false;
 
     public void startAnim(Activity rootContainer, int layoutID) {
         View view = rootContainer.findViewById(layoutID);
@@ -63,6 +69,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
 
 
     public Animator fillScreen(boolean success, boolean animMorph) {
+        screenFiled = true;
         Animator anim;
         MorphingAnimation morphingAnimation = new MorphingAnimation(getApplicationContext(), fab);
         if (success) {
@@ -82,6 +89,7 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
     }
 
     public Animator unFillScreen(boolean success, boolean animMorph) {
+        screenFiled = false;
         Animator anim;
         MorphingAnimation morphingAnimation = new MorphingAnimation(getApplicationContext(), fab);
         if (success) {
@@ -151,8 +159,6 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
         setSupportActionBar(toolbar);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Intent intent = getIntent();
-        practice = intent.getBooleanExtra(Const.PRACTICE, false);
     }
 
     private void setNaviBarColor() {
@@ -173,7 +179,9 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
     }
 
     private Class getNextActivity(Context context) {
-        if (context.getClass().equals(BricksActivity.class))
+        if(test)
+            return NumbersResultActivity.class;
+        else if (context.getClass().equals(BricksActivity.class))
             return BricksOrderActivity.class;
         else if (context.getClass().equals(BricksOrderActivity.class))
             return ChoiceActivity.class;
@@ -237,5 +245,21 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
 
     public void setPractice(boolean practice) {
         this.practice = practice;
+    }
+
+    public boolean isTest() {
+        return test;
+    }
+
+    public void setTest(boolean test) {
+        this.test = test;
+    }
+
+    public boolean isScreenFiled() {
+        return screenFiled;
+    }
+
+    public void setScreenFiled(boolean screenFiled) {
+        this.screenFiled = screenFiled;
     }
 }

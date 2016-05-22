@@ -1,4 +1,4 @@
-package org.e_lementarz.elementarz.activities.numbers;
+package org.e_lementarz.elementarz.activities.numbers.mainly;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import org.e_lementarz.elementarz.R;
-import org.e_lementarz.elementarz.common.ElementarzNumbersActivity;
+import org.e_lementarz.elementarz.activities.numbers.AddingActivity;
+import org.e_lementarz.elementarz.activities.numbers.AddingCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.BricksActivity;
+import org.e_lementarz.elementarz.activities.numbers.BricksOrderActivity;
+import org.e_lementarz.elementarz.activities.numbers.ChoiceActivity;
+import org.e_lementarz.elementarz.activities.numbers.ChoiceCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.CompareActivity;
+import org.e_lementarz.elementarz.activities.numbers.CompareCheckActivity;
+import org.e_lementarz.elementarz.common.extend.ElementarzNumbersActivity;
 
 public class NumbersActivity extends ElementarzNumbersActivity {
 

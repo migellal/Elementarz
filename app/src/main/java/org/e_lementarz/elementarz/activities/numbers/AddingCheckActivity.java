@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
-import org.e_lementarz.elementarz.common.CounterOperation;
-import org.e_lementarz.elementarz.common.ElementarzNumbersActivity;
-import org.e_lementarz.elementarz.common.StackBricksElementsCreator;
-import org.e_lementarz.elementarz.common.StackBricksElementsOperation;
-import org.e_lementarz.elementarz.common.StarsOperation;
+import org.e_lementarz.elementarz.common.operations.CounterOperation;
+import org.e_lementarz.elementarz.common.extend.ElementarzNumbersActivity;
+import org.e_lementarz.elementarz.common.operations.StackBricksElementsCreator;
+import org.e_lementarz.elementarz.common.operations.StackBricksElementsOperation;
+import org.e_lementarz.elementarz.common.operations.StarsOperation;
 
 import java.util.Random;
 
@@ -102,11 +102,11 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
     public void onClickSuccessView() {
         if (isPractice()) {
             createReadyView();
-            counterOperation.count(true);
+            counterOperation.nextPoint(true);
             unFillScreen(true, true);
             screenFiled = false;
         } else {
-            starsOperation.nextStar(true);
+            starsOperation.nextPoint(true);
             gameCounter++;
             if (gameCounter == 5)
                 nextActivity(true, AddingCheckActivity.this);
@@ -122,11 +122,11 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
     void onClickFailureView() {
         if (isPractice()) {
             createReadyView();
-            counterOperation.count(false);
+            counterOperation.nextPoint(false);
             unFillScreen(false, true);
             screenFiled = false;
         } else {
-            starsOperation.nextStar(false);
+            starsOperation.nextPoint(false);
             gameCounter++;
             if (gameCounter == 5)
                 nextActivity(false, AddingCheckActivity.this);

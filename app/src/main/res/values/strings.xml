@@ -28,4 +28,10 @@
     <string name="zero">0</string>
     <string name="numbersPracticeLbl">Numbers practice</string>
     <string name="title_activity_numbers_practice">NumbersPracticeActivity</string>
+    <string name="numbersTestLbl">Numbers test</string>
+    <string name="title_activity_numbers_test">NumbersTestActivity</string>
+    <string name="I_class">I</string>
+    <string name="II_class">II</string>
+    <string name="III_class">III</string>
+    <string name="title_activity_numbers_result">NumbersResultActivity</string>
 </resources>

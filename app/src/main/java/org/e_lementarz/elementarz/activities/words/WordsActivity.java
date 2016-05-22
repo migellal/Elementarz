@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import org.e_lementarz.elementarz.R;
-import org.e_lementarz.elementarz.common.ElementarzNumbersActivity;
+import org.e_lementarz.elementarz.common.extend.ElementarzNumbersActivity;
 
 public class WordsActivity extends ElementarzNumbersActivity {
 

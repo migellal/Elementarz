@@ -1,4 +1,4 @@
-package org.e_lementarz.elementarz.common;
+package org.e_lementarz.elementarz.common.operations;
 
 import android.content.Context;
 import android.view.View;

@@ -9,33 +9,41 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activities.numbers.mainly.NumbersPracticeActivity"
-    tools:showIn="@layout/activity_numbers_practice">
+    tools:context=".activities.numbers.mainly.NumbersTestActivity"
+    tools:showIn="@layout/activity_numbers_test">
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/compareCheck"
-        android:id="@+id/compareCheckBtn"
-        android:onClick="onClickNumbers"
-        android:layout_below="@+id/choiceCheckBtn"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/adding_check_bricks"
-        android:id="@+id/addingCheckBtn"
-        android:onClick="onClickNumbers"
-        android:layout_below="@+id/compareCheckBtn"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/choice_check"
-        android:id="@+id/choiceCheckBtn"
-        android:onClick="onClickNumbers"
+        android:text="@string/choice"
+        android:id="@+id/choiceTV"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/III_class"
+        android:id="@+id/choiceClassIIIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_below="@+id/choiceTV"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/II_class"
+        android:id="@+id/choiceClassIIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_alignTop="@+id/choiceClassIIIBtn"
+        android:layout_toEndOf="@+id/choiceClassIIIBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/I_class"
+        android:id="@+id/choiceClassIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_alignTop="@+id/choiceClassIIBtn"
+        android:layout_toEndOf="@+id/choiceClassIIBtn" />
 </RelativeLayout>

@@ -1,15 +1,10 @@
-package org.e_lementarz.elementarz.common;
+package org.e_lementarz.elementarz.common.operations;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.BounceInterpolator;
 import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
-import org.e_lementarz.elementarz.util.ReverseInterpolator;
 
 /**
  * Created by micha on 21.03.2016.

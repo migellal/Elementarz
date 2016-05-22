@@ -5,10 +5,10 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
-import org.e_lementarz.elementarz.common.ElementarzNumbersActivity;
-import org.e_lementarz.elementarz.common.MorphingAnimation;
-import org.e_lementarz.elementarz.common.StackBricksElementsCreator;
-import org.e_lementarz.elementarz.common.StackBricksElementsOperation;
+import org.e_lementarz.elementarz.common.extend.ElementarzNumbersActivity;
+import org.e_lementarz.elementarz.common.operations.MorphingAnimation;
+import org.e_lementarz.elementarz.common.operations.StackBricksElementsCreator;
+import org.e_lementarz.elementarz.common.operations.StackBricksElementsOperation;
 
 import java.util.Random;
 

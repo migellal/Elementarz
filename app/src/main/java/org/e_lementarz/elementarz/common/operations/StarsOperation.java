@@ -1,16 +1,18 @@
-package org.e_lementarz.elementarz.common;
+package org.e_lementarz.elementarz.common.operations;
 
 import android.app.Activity;
 import android.view.View;
 import android.widget.ImageView;
 
 import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.common.Const;
+import org.e_lementarz.elementarz.common.interfaces.Operation;
 
 
 /**
  * Created by micha on 15.05.2016.
  */
-public class StarsOperation {
+public class StarsOperation implements Operation {
 
     private ImageView[] stars;
     private int starsCounter = 0;
@@ -24,11 +26,12 @@ public class StarsOperation {
         stars = new ImageView[]{star1, star2, star3, star4, star5};
     }
 
-    public void nextStar(boolean good) {
+    public boolean nextPoint(boolean good) {
         if (!good)
             stars[starsCounter].setImageResource(R.drawable.ic_star_border_black_48dp);
         stars[starsCounter].setVisibility(View.VISIBLE);
         starsCounter++;
+        return starsCounter == Const.STARS_ANSWER_COUNTER;
     }
 
 }

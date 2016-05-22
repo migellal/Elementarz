@@ -1,4 +1,4 @@
-package org.e_lementarz.elementarz.common;
+package org.e_lementarz.elementarz.common.interfaces;
 
 /**
  * Created by micha on 07.05.2016.
