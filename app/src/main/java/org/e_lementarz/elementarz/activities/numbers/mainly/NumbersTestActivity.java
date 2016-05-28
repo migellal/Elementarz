@@ -9,7 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import org.e_lementarz.elementarz.R;
+import org.e_lementarz.elementarz.activities.numbers.AddingCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.ChoiceCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.CompareCheckActivity;
 import org.e_lementarz.elementarz.common.Const;
 
 public class NumbersTestActivity extends AppCompatActivity {
@@ -45,6 +47,30 @@ public class NumbersTestActivity extends AppCompatActivity {
                     break;
                 case R.id.choiceClassIBtn:
                     intent = new Intent(NumbersTestActivity.this, ChoiceCheckActivity.class);
+                    intent.putExtra(Const.CLASS, 1);
+                    break;
+                case R.id.compareClassIIIBtn:
+                    intent = new Intent(NumbersTestActivity.this, CompareCheckActivity.class);
+                    intent.putExtra(Const.CLASS, 3);
+                    break;
+                case R.id.compareClassIIBtn:
+                    intent = new Intent(NumbersTestActivity.this, CompareCheckActivity.class);
+                    intent.putExtra(Const.CLASS, 2);
+                    break;
+                case R.id.compareClassIBtn:
+                    intent = new Intent(NumbersTestActivity.this, CompareCheckActivity.class);
+                    intent.putExtra(Const.CLASS, 1);
+                    break;
+                case R.id.addingClassIIIBtn:
+                    intent = new Intent(NumbersTestActivity.this, AddingCheckActivity.class);
+                    intent.putExtra(Const.CLASS, 3);
+                    break;
+                case R.id.addingClassIIBtn:
+                    intent = new Intent(NumbersTestActivity.this, AddingCheckActivity.class);
+                    intent.putExtra(Const.CLASS, 2);
+                    break;
+                case R.id.addingClassIBtn:
+                    intent = new Intent(NumbersTestActivity.this, AddingCheckActivity.class);
                     intent.putExtra(Const.CLASS, 1);
                     break;
             }

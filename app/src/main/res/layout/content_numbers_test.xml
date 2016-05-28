@@ -46,4 +46,74 @@
         android:onClick="onCLickClassBtn"
         android:layout_alignTop="@+id/choiceClassIIBtn"
         android:layout_toEndOf="@+id/choiceClassIIBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numbersCompareLbl"
+        android:id="@+id/compareTV"
+        android:layout_below="@+id/choiceClassIIIBtn"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/III_class"
+        android:id="@+id/compareClassIIIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_below="@+id/compareTV"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/II_class"
+        android:id="@+id/compareClassIIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_alignTop="@+id/compareClassIIIBtn"
+        android:layout_toEndOf="@+id/compareClassIIIBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/I_class"
+        android:id="@+id/compareClassIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_alignTop="@+id/compareClassIIBtn"
+        android:layout_toEndOf="@+id/compareClassIIBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adding_bricks"
+        android:id="@+id/addingTV"
+        android:layout_below="@+id/compareClassIIIBtn"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/III_class"
+        android:id="@+id/addingClassIIIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_below="@+id/addingTV"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/II_class"
+        android:id="@+id/addingClassIIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_alignTop="@+id/addingClassIIIBtn"
+        android:layout_toEndOf="@+id/addingClassIIIBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/I_class"
+        android:id="@+id/addingClassIBtn"
+        android:onClick="onCLickClassBtn"
+        android:layout_alignTop="@+id/addingClassIIBtn"
+        android:layout_toEndOf="@+id/addingClassIIBtn" />
 </RelativeLayout>

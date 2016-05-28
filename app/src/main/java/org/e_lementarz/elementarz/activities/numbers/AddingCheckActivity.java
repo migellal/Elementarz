@@ -5,29 +5,26 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
-import org.e_lementarz.elementarz.common.operations.CounterOperation;
-import org.e_lementarz.elementarz.common.extend.ElementarzNumbersActivity;
+import org.e_lementarz.elementarz.common.extend.ElementarzNumbersCheckActivity;
+import org.e_lementarz.elementarz.common.interfaces.Operation;
 import org.e_lementarz.elementarz.common.operations.StackBricksElementsCreator;
 import org.e_lementarz.elementarz.common.operations.StackBricksElementsOperation;
-import org.e_lementarz.elementarz.common.operations.StarsOperation;
 
 import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class AddingCheckActivity extends ElementarzNumbersActivity {
+public class AddingCheckActivity extends ElementarzNumbersCheckActivity {
 
-    private int counter = 0;
-    private int result;
-    private int gameCounter = 0;
-    private boolean screenFiled = false;
     @Bind(R.id.includeFirstStack)
     View includeFirstStack;
     @Bind(R.id.includeSecondStack)
     View includeSecondStack;
     @Bind(R.id.includeResultStack)
     View includeResultStack;
+    private int counter = -1;
+    private int result = -1;
     private View[] bricksFirstArray;
     private View[] bricksSecondArray;
     private View[] bricksResultArray;
@@ -36,8 +33,7 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
     private TextView resultStackCounterTV;
     private StackBricksElementsCreator stackBricksElementsCreator = new StackBricksElementsCreator();
     private StackBricksElementsOperation stackBricksElementsOperation = new StackBricksElementsOperation();
-    private StarsOperation starsOperation;
-    private CounterOperation counterOperation;
+    private Operation operation;
 
 
     @Override
@@ -50,33 +46,15 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.fab)
     public void onClickFab() {
-        if (counter == result) {
-            if (!screenFiled) {
-                fillScreen(true, true);
-                screenFiled = true;
-            } else
-                onClickSuccessView();
+        if (!isScreenFiled()) {
+            stopTime();
+            fillScreen(counter == result, true);
         } else {
-            if (!screenFiled) {
-                fillScreen(false, true);
-                screenFiled = true;
-            } else
+            if (counter == result)
+                onClickSuccessView();
+            else
                 onClickFailureView();
         }
-    }
-
-    private void createReadyView() {
-        Random random = new Random();
-        int firstRand = random.nextInt(6);
-        int secondRand = random.nextInt(6);
-        stackBricksElementsOperation.showStack(bricksFirstArray, firstRand);
-        stackBricksElementsOperation.showStack(bricksSecondArray, secondRand);
-        stackBricksElementsOperation.hideStack(bricksResultArray);
-        counter = 0;
-        stackBricksElementsOperation.refreshText(firstStackCounterTV, firstRand);
-        stackBricksElementsOperation.refreshText(secondStackCounterTV, secondRand);
-        stackBricksElementsOperation.refreshText(resultStackCounterTV, counter);
-        result = firstRand + secondRand;
     }
 
     @OnClick(R.id.addingPlusBtn)
@@ -100,42 +78,24 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        if (isPractice()) {
-            createReadyView();
-            counterOperation.nextPoint(true);
-            unFillScreen(true, true);
-            screenFiled = false;
-        } else {
-            starsOperation.nextPoint(true);
-            gameCounter++;
-            if (gameCounter == 5)
-                nextActivity(true, AddingCheckActivity.this);
-            else {
-                createReadyView();
-                unFillScreen(true, true);
-                screenFiled = false;
-            }
-        }
+        if (operation.nextPoint(true))
+            nextActivity(true, AddingCheckActivity.this);
+        else
+            onClickCommon();
     }
 
     @OnClick(R.id.failureView)
-    void onClickFailureView() {
-        if (isPractice()) {
-            createReadyView();
-            counterOperation.nextPoint(false);
-            unFillScreen(false, true);
-            screenFiled = false;
-        } else {
-            starsOperation.nextPoint(false);
-            gameCounter++;
-            if (gameCounter == 5)
-                nextActivity(false, AddingCheckActivity.this);
-            else {
-                createReadyView();
-                unFillScreen(false, true);
-                screenFiled = false;
-            }
-        }
+    public void onClickFailureView() {
+        if (operation.nextPoint(false))
+            nextActivity(false, AddingCheckActivity.this);
+        else
+            onClickCommon();
+    }
+
+    @Override
+    public void onClickCommon() {
+        unFillScreen(counter == result, true);
+        createReadyView();
     }
 
     @Override
@@ -145,6 +105,7 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
         int firstRand = random.nextInt(6);
         int secondRand = random.nextInt(6);
 
+        operation = getOperation();
         startAnim(this, R.id.content_adding);
         firstStackCounterTV = (TextView) includeFirstStack.findViewById(R.id.bricksTV);
         secondStackCounterTV = (TextView) includeSecondStack.findViewById(R.id.bricksTV);
@@ -152,11 +113,23 @@ public class AddingCheckActivity extends ElementarzNumbersActivity {
         bricksFirstArray = stackBricksElementsCreator.createBricksStack(includeFirstStack, firstRand);
         bricksSecondArray = stackBricksElementsCreator.createBricksStack(includeSecondStack, secondRand);
         bricksResultArray = stackBricksElementsCreator.createBricksStack(includeResultStack);
-        if (isPractice())
-            counterOperation = new CounterOperation(this);
-        else
-            starsOperation = new StarsOperation(this);
         createReadyView();
+    }
+
+    @Override
+    public void createReadyView() {
+        Random random = new Random();
+        int firstRand = random.nextInt(6);
+        int secondRand = random.nextInt(6);
+        stackBricksElementsOperation.showStack(bricksFirstArray, firstRand);
+        stackBricksElementsOperation.showStack(bricksSecondArray, secondRand);
+        stackBricksElementsOperation.hideStack(bricksResultArray);
+        counter = 0;
+        stackBricksElementsOperation.refreshText(firstStackCounterTV, firstRand);
+        stackBricksElementsOperation.refreshText(secondStackCounterTV, secondRand);
+        stackBricksElementsOperation.refreshText(resultStackCounterTV, counter);
+        result = firstRand + secondRand;
+        startTime();
     }
 
 }

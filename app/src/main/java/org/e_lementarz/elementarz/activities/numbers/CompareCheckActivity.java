@@ -5,31 +5,26 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
-import org.e_lementarz.elementarz.common.operations.CounterOperation;
-import org.e_lementarz.elementarz.common.extend.ElementarzNumbersActivity;
+import org.e_lementarz.elementarz.common.extend.ElementarzNumbersCheckActivity;
+import org.e_lementarz.elementarz.common.interfaces.Operation;
 import org.e_lementarz.elementarz.common.operations.StackBricksElementsCreator;
 import org.e_lementarz.elementarz.common.operations.StackBricksElementsOperation;
-import org.e_lementarz.elementarz.common.operations.StarsOperation;
 
 import java.util.Random;
 
 import butterknife.OnClick;
 
-public class CompareCheckActivity extends ElementarzNumbersActivity {
+public class CompareCheckActivity extends ElementarzNumbersCheckActivity {
 
-    private int counterLeft = 0;
-    private int counterRight = 0;
-    private int gameCounter = 0;
-    private boolean screenFiled = false;
-    private boolean nextActivity = false;
+    private int counterLeft = -1;
+    private int counterRight = -1;
     private View[] bricksLeftArray;
     private View[] bricksRightArray;
     private TextView leftStackCounterTV;
     private TextView rightStackCounterTV;
     private StackBricksElementsCreator stackBricksElementsCreator = new StackBricksElementsCreator();
     private StackBricksElementsOperation stackBricksElementsOperation = new StackBricksElementsOperation();
-    private StarsOperation starsOperation;
-    private CounterOperation counterOperation;
+    private Operation operation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,92 +69,48 @@ public class CompareCheckActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        if (isPractice()) {
-            stackBricksElementsOperation.hideStack(bricksLeftArray);
-            stackBricksElementsOperation.hideStack(bricksRightArray);
-            createReadyView();
-            counterOperation.nextPoint(true);
-            unFillScreen(true, true);
-            screenFiled = false;
-        } else {
-            starsOperation.nextPoint(true);
-            gameCounter++;
-            if (gameCounter == 5)
-                nextActivity(true, CompareCheckActivity.this);
-            else {
-                stackBricksElementsOperation.hideStack(bricksLeftArray);
-                stackBricksElementsOperation.hideStack(bricksRightArray);
-                createReadyView();
-                screenFiled = false;
-                unFillScreen(true, true);
-            }
-        }
+        if (operation.nextPoint(true))
+            nextActivity(true, CompareCheckActivity.this);
+        else
+            onClickCommon();
     }
 
+    @Override
     @OnClick(R.id.failureView)
-    void onClickFailureView() {
-        if (isPractice()) {
-            stackBricksElementsOperation.hideStack(bricksLeftArray);
-            stackBricksElementsOperation.hideStack(bricksRightArray);
-            createReadyView();
-            counterOperation.nextPoint(false);
-            unFillScreen(false, true);
-            screenFiled = false;
-        } else {
-            starsOperation.nextPoint(false);
-            gameCounter++;
-            if (gameCounter == 5)
-                nextActivity(false, CompareCheckActivity.this);
-            else {
-                stackBricksElementsOperation.hideStack(bricksLeftArray);
-                stackBricksElementsOperation.hideStack(bricksRightArray);
-                createReadyView();
-                screenFiled = false;
-                unFillScreen(false, true);
-            }
-        }
-    }
-
-    private void createReadyView() {
-        Random random = new Random();
-        int leftRand = random.nextInt(11);
-        int rightRand = random.nextInt(11);
-        counterLeft = leftRand;
-        counterRight = rightRand;
-        stackBricksElementsOperation.showStack(bricksLeftArray, leftRand);
-        stackBricksElementsOperation.showStack(bricksRightArray, rightRand);
-        stackBricksElementsOperation.refreshText(leftStackCounterTV, leftRand);
-        stackBricksElementsOperation.refreshText(rightStackCounterTV, rightRand);
+    public void onClickFailureView() {
+        if (operation.nextPoint(false))
+            nextActivity(false, CompareCheckActivity.this);
+        else
+            onClickCommon();
     }
 
     @Override
     @OnClick(R.id.fab)
     public void onClickFab() {
-        if (nextActivity) {
-            if (counterLeft == counterRight)
+        if (!isScreenFiled()) {
+            stopTime();
+            fillScreen(counterRight == counterLeft, true);
+        } else {
+            if (counterRight == counterLeft)
                 onClickSuccessView();
             else
                 onClickFailureView();
-        } else if (!nextActivity&&!screenFiled) {
-            fillScreen(counterRight == counterLeft, true);
-            screenFiled = true;
-            if (gameCounter == 5)
-                nextActivity = true;
         }
-        else if(screenFiled&&counterRight == counterLeft)
-        {
-            onClickSuccessView();
-        }
-        else if(screenFiled&&counterRight != counterLeft)
-        {
-            onClickFailureView();
-        }
+    }
+
+    @Override
+    public void onClickCommon() {
+        stackBricksElementsOperation.hideStack(bricksLeftArray);
+        stackBricksElementsOperation.hideStack(bricksRightArray);
+        unFillScreen(counterRight == counterLeft, true);
+        createReadyView();
     }
 
     @Override
     public void createViews() {
         super.createViews();
 
+        operation = getOperation();
         startAnim(this, R.id.content_compare);
         View stackBricksContainerLeft = findViewById(R.id.includeLeftStack);
         View stackBricksContainerRight = findViewById(R.id.includeRightStack);
@@ -169,10 +120,20 @@ public class CompareCheckActivity extends ElementarzNumbersActivity {
         assert stackBricksContainerRight != null;
         leftStackCounterTV = (TextView) stackBricksContainerLeft.findViewById(R.id.bricksTV);
         rightStackCounterTV = (TextView) stackBricksContainerRight.findViewById(R.id.bricksTV);
-        if (isPractice())
-            counterOperation = new CounterOperation(this);
-        else
-            starsOperation = new StarsOperation(this);
         createReadyView();
+    }
+
+    @Override
+    public void createReadyView() {
+        Random random = new Random();
+        int leftRand = random.nextInt(11);
+        int rightRand = random.nextInt(11);
+        counterLeft = leftRand;
+        counterRight = rightRand;
+        stackBricksElementsOperation.showStack(bricksLeftArray, leftRand);
+        stackBricksElementsOperation.showStack(bricksRightArray, rightRand);
+        stackBricksElementsOperation.refreshText(leftStackCounterTV, leftRand);
+        stackBricksElementsOperation.refreshText(rightStackCounterTV, rightRand);
+        startTime();
     }
 }

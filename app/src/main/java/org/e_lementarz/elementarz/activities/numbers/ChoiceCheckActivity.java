@@ -16,8 +16,8 @@ import butterknife.OnClick;
 
 public class ChoiceCheckActivity extends ElementarzNumbersCheckActivity {
 
-    int result = -1;
-    int selected = -1;
+    private int result = -1;
+    private int selected = -1;
     private View[] bricksArray;
     private StackBricksElementsCreator stackBricksElementsCreator = new StackBricksElementsCreator();
     private StackBricksElementsOperation stackBricksElementsOperation = new StackBricksElementsOperation();
@@ -34,35 +34,30 @@ public class ChoiceCheckActivity extends ElementarzNumbersCheckActivity {
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        if(operation.nextPoint(true))
+        if (operation.nextPoint(true))
             nextActivity(true, ChoiceCheckActivity.this);
-        else {
+        else
             onClickCommon();
-            unFillScreen(true, true);
-        }
     }
 
     @Override
     @OnClick(R.id.failureView)
     public void onClickFailureView() {
-        if(operation.nextPoint(false))
+        if (operation.nextPoint(false))
             nextActivity(false, ChoiceCheckActivity.this);
-        else {
+        else
             onClickCommon();
-            unFillScreen(false, true);
-        }
+
     }
 
     @Override
     @OnClick(R.id.fab)
     public void onClickFab() {
-        if(!isScreenFiled()) {
+        if (!isScreenFiled()) {
             stopTime();
             fillScreen(selected == result, true);
-        }
-        else
-        {
-            if(selected==result)
+        } else {
+            if (selected == result)
                 onClickSuccessView();
             else
                 onClickFailureView();
@@ -72,6 +67,7 @@ public class ChoiceCheckActivity extends ElementarzNumbersCheckActivity {
     @Override
     public void onClickCommon() {
         stackBricksElementsOperation.hideStack(bricksArray);
+        unFillScreen(selected == result, true);
         createReadyView();
     }
 
@@ -88,8 +84,7 @@ public class ChoiceCheckActivity extends ElementarzNumbersCheckActivity {
     }
 
     @Override
-    public void createReadyView()
-    {
+    public void createReadyView() {
         currentNumber.setVisibility(View.INVISIBLE);
         Random random = new Random();
         result = random.nextInt(11);
@@ -99,7 +94,7 @@ public class ChoiceCheckActivity extends ElementarzNumbersCheckActivity {
 
     private void checkSize(int n) {
         selected = n;
-        if(currentNumber.getVisibility()==View.INVISIBLE)
+        if (currentNumber.getVisibility() == View.INVISIBLE)
             currentNumber.setVisibility(View.VISIBLE);
         stackBricksElementsOperation.refreshText(currentNumber, selected);
     }

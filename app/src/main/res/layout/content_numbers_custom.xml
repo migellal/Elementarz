@@ -73,4 +73,20 @@
         android:id="@+id/choiceBTN"
         android:layout_below="@+id/timeET"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/numbersCompareLbl"
+        android:id="@+id/compareBTN"
+        android:layout_below="@+id/choiceBTN"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/adding_bricks"
+        android:id="@+id/addingBTN"
+        android:layout_below="@+id/compareBTN"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
