@@ -17,7 +17,7 @@ public class CompareActivity extends ElementarzNumbersActivity {
     private int counterLeft = 0;
     private int counterRight = 0;
     private boolean firstChange = true;
-    private boolean nextActivity = false;
+    private boolean isClicked = false;
     private View[] bricksLeftArray;
     private View[] bricksRightArray;
     private TextView firstStackCounterTV;
@@ -77,18 +77,16 @@ public class CompareActivity extends ElementarzNumbersActivity {
             morphingAnimation.animFab(R.drawable.ic_undone_to_done, R.color.colorSuccessGreen);
         }
         firstChange=false;
+        isClicked=true;
     }
 
     @Override
     @OnClick(R.id.fab)
     public void onClickFab() {
-        if(nextActivity)
+        if(isScreenFiled())
             onClickSuccessView();
-        else if(counterLeft==counterRight)
-        {
+        else if(counterLeft==counterRight&&isClicked)
             fillScreen(true, false);
-            nextActivity = true;
-        }
     }
 
     @Override

@@ -17,16 +17,15 @@ import butterknife.OnClick;
 
 public class AddingActivity extends ElementarzNumbersActivity {
 
-    private int counter = 0;
-    private int result;
-    private boolean screenFiled = false;
-    private boolean firstChange = true;
     @Bind(R.id.includeFirstStack)
     View includeFirstStack;
     @Bind(R.id.includeSecondStack)
     View includeSecondStack;
     @Bind(R.id.includeResultStack)
     View includeResultStack;
+    private int counter = 0;
+    private int result = 0;
+    private boolean firstChange = true;
     private View[] bricksFirstArray;
     private View[] bricksSecondArray;
     private View[] bricksResultArray;
@@ -47,12 +46,10 @@ public class AddingActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.fab)
     public void onClickFab() {
-        if (screenFiled)
+        if (isScreenFiled())
             onClickSuccessView();
-        else if (counter == result) {
+        else if (counter == result)
             fillScreen(true, false);
-            screenFiled = true;
-        }
     }
 
     private void createReadyView() {

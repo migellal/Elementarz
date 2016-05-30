@@ -11,6 +11,8 @@
         <activity
             android:name=".activities.MenuActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +23,8 @@
         <activity
             android:name=".activities.words.WordsActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -30,6 +34,8 @@
         <activity
             android:name=".activities.numbers.mainly.NumbersActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,6 +44,8 @@
         <activity
             android:name=".activities.numbers.BricksActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -47,6 +55,8 @@
         <activity
             android:name=".activities.numbers.CompareActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -56,6 +66,8 @@
         <activity
             android:name=".activities.numbers.BricksOrderActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -64,6 +76,8 @@
         <activity
             android:name=".activities.numbers.CompareCheckActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -73,6 +87,8 @@
         <activity
             android:name=".activities.numbers.AddingActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -82,6 +98,8 @@
         <activity
             android:name=".activities.numbers.AddingCheckActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -91,6 +109,8 @@
         <activity
             android:name=".activities.numbers.ChoiceActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -100,6 +120,8 @@
         <activity
             android:name=".activities.numbers.ChoiceCheckActivity"
             android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.numbers.mainly.NumbersActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -108,7 +130,9 @@
         </activity>
         <activity
             android:name=".activities.numbers.mainly.NumbersPracticeActivity"
-            android:label="@string/title_activity_numbers_practice"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -117,7 +141,9 @@
         </activity>
         <activity
             android:name=".activities.numbers.mainly.NumbersTestActivity"
-            android:label="@string/title_activity_numbers_test"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -126,7 +152,9 @@
         </activity>
         <activity
             android:name=".activities.numbers.mainly.NumbersResultActivity"
-            android:label="@string/title_activity_numbers_result"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -135,7 +163,9 @@
         </activity>
         <activity
             android:name=".activities.numbers.mainly.NumbersCustomActivity"
-            android:label="@string/title_activity_numbers_custom"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

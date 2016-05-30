@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.activities.numbers.AddingCheckActivity;
@@ -24,14 +25,20 @@ public class NumbersTestActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Not implemented yet", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView infoTV = (TextView) findViewById(R.id.infoTV);
+        String info = "III class: good answer - " + Const.III_CLASS_GOOD_ANSWER + ", bad answer - " + Const.III_CLASS_BAD_ANSWER + ", time: " + Const.III_CLASS_TIME + "\n";
+        info = info + "II class: good answer - " + Const.II_CLASS_GOOD_ANSWER + ", bad answer - " + Const.II_CLASS_BAD_ANSWER + ", time: " + Const.II_CLASS_TIME + "\n";
+        info = info + "I class: good answer - " + Const.I_CLASS_GOOD_ANSWER + ", bad answer - " + Const.I_CLASS_BAD_ANSWER + ", time: " + Const.I_CLASS_TIME;
+        infoTV.setText(info);
     }
 
     public void onCLickClassBtn(View view) {

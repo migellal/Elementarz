@@ -116,4 +116,11 @@
         android:onClick="onCLickClassBtn"
         android:layout_alignTop="@+id/addingClassIIBtn"
         android:layout_toEndOf="@+id/addingClassIIBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoTV"
+        android:layout_below="@+id/addingClassIIIBtn"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

@@ -39,4 +39,5 @@
     <string name="timeAnswer">time</string>
     <string name="badAnswer">bad answer</string>
     <string name="goodAnswer">good answer</string>
+    <string name="temp">Not implemented yet</string>
 </resources>

@@ -35,8 +35,7 @@ public class BricksActivity extends ElementarzNumbersActivity {
         } else if (counter == 10) {
             counter++;
             fillScreen(true, true);
-        }
-        else
+        } else
             onClickSuccessView();
     }
 

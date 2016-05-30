@@ -16,9 +16,8 @@ import butterknife.OnClick;
 
 public class ChoiceActivity extends ElementarzNumbersActivity {
 
-    private int selected = -1;
-    private int result = -1;
-    private boolean screenFiled = false;
+    private int selected = 0;
+    private int result = 0;
     private boolean firstAnim = true;
     private StackBricksElementsCreator stackBricksElementsCreator = new StackBricksElementsCreator();
     private StackBricksElementsOperation stackBricksElementsOperation = new StackBricksElementsOperation();
@@ -41,12 +40,10 @@ public class ChoiceActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.fab)
     public void onClickFab() {
-        if (screenFiled)
+        if (isScreenFiled())
             onClickSuccessView();
-        else if (selected == result) {
+        else if (selected == result)
             fillScreen(true, false);
-            screenFiled = true;
-        }
     }
 
     private void checkSize(int n) {

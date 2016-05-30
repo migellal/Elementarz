@@ -12,7 +12,7 @@ import org.e_lementarz.elementarz.common.interfaces.ElementarzNumbersHelper;
 
 import butterknife.OnClick;
 
-public class BricksOrderActivity extends ElementarzNumbersActivity implements ElementarzNumbersHelper {
+public class BricksOrderActivity extends ElementarzNumbersActivity {
 
     private int counter = 0;
     private View[] bricksStacks;
