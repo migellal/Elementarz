@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".activities.MenuActivity">
+    tools:context="org.e_lementarz.elementarz.activities.numbers.SubtractionActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -21,7 +21,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_menu" />
+    <include layout="@layout/content_subtraction" />
+    <include layout="@layout/layout_success" />
+    <include layout="@layout/layout_failure" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -29,6 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_face_black_48dp" />
+        android:src="@drawable/ic_line_vector" />
 
 </android.support.design.widget.CoordinatorLayout>

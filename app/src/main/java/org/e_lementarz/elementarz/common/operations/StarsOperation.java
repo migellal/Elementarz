@@ -26,6 +26,7 @@ public class StarsOperation implements Operation {
         stars = new ImageView[]{star1, star2, star3, star4, star5};
     }
 
+    @Override
     public boolean nextPoint(boolean good) {
         if (!good)
             stars[starsCounter].setImageResource(R.drawable.ic_star_border_black_48dp);

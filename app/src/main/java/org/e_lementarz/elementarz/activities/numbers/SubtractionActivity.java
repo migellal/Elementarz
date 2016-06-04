@@ -1,6 +1,10 @@
 package org.e_lementarz.elementarz.activities.numbers;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,7 +19,7 @@ import java.util.Random;
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class AddingActivity extends ElementarzNumbersActivity {
+public class SubtractionActivity extends ElementarzNumbersActivity {
 
     @Bind(R.id.includeFirstStack)
     View includeFirstStack;
@@ -35,17 +39,8 @@ public class AddingActivity extends ElementarzNumbersActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adding);
+        setContentView(R.layout.activity_subtraction);
         createViews();
-    }
-
-    @Override
-    @OnClick(R.id.fab)
-    public void onClickFab() {
-        if (isScreenFiled())
-            onClickSuccessView();
-        else if (counter == result)
-            fillScreen(true, false);
     }
 
     @OnClick(R.id.addingPlusBtn)
@@ -71,17 +66,26 @@ public class AddingActivity extends ElementarzNumbersActivity {
     @Override
     @OnClick(R.id.successView)
     public void onClickSuccessView() {
-        nextActivity(true, AddingActivity.this);
+        nextActivity(true, SubtractionActivity.this);
+    }
+
+    @Override
+    @OnClick(R.id.fab)
+    public void onClickFab() {
+        if (isScreenFiled())
+            onClickSuccessView();
+        else if (counter == result)
+            fillScreen(true, false);
     }
 
     @Override
     public void createViews() {
         super.createViews();
         Random random = new Random();
-        int firstRand = random.nextInt(6);
-        int secondRand = random.nextInt(6);
+        int firstRand = random.nextInt(10)+1;
+        int secondRand = random.nextInt(firstRand+1);
 
-        startAnim(this, R.id.content_adding);
+        startAnim(this, R.id.content_subtraction);
         morphingAnimation = new MorphingAnimation(getApplicationContext(), getFab());
         TextView firstStackCounterTV = (TextView) includeFirstStack.findViewById(R.id.bricksTV);
         TextView secondStackCounterTV = (TextView) includeSecondStack.findViewById(R.id.bricksTV);
@@ -92,7 +96,7 @@ public class AddingActivity extends ElementarzNumbersActivity {
         stackBricksElementsOperation.refreshText(firstStackCounterTV, firstRand);
         stackBricksElementsOperation.refreshText(secondStackCounterTV, secondRand);
         stackBricksElementsOperation.refreshText(resultStackCounterTV, counter);
-        result = firstRand + secondRand;
+        result = firstRand - secondRand;
     }
 
     private void changeFab()

@@ -14,6 +14,8 @@ import org.e_lementarz.elementarz.activities.numbers.ChoiceActivity;
 import org.e_lementarz.elementarz.activities.numbers.ChoiceCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.CompareActivity;
 import org.e_lementarz.elementarz.activities.numbers.CompareCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.SubtractionActivity;
+import org.e_lementarz.elementarz.activities.numbers.SubtractionCheckActivity;
 import org.e_lementarz.elementarz.common.extend.ElementarzNumbersActivity;
 
 public class NumbersActivity extends ElementarzNumbersActivity {
@@ -54,6 +56,12 @@ public class NumbersActivity extends ElementarzNumbersActivity {
                 break;
             case R.id.addingCheckBtn:
                 intent = new Intent(NumbersActivity.this, AddingCheckActivity.class);
+                break;
+            case R.id.subtractionBtn:
+                intent = new Intent(NumbersActivity.this, SubtractionActivity.class);
+                break;
+            case R.id.subtractionCheckBtn:
+                intent = new Intent(NumbersActivity.this, SubtractionCheckActivity.class);
                 break;
         }
         startActivity(intent);

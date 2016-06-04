@@ -12,6 +12,7 @@ import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.activities.numbers.AddingCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.ChoiceCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.CompareCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.SubtractionCheckActivity;
 import org.e_lementarz.elementarz.common.Const;
 
 public class NumbersPracticeActivity extends AppCompatActivity {
@@ -46,6 +47,9 @@ public class NumbersPracticeActivity extends AppCompatActivity {
                 break;
             case R.id.addingCheckBtn:
                 intent = new Intent(NumbersPracticeActivity.this, AddingCheckActivity.class);
+                break;
+            case R.id.subtractionCheckBtn:
+                intent = new Intent(NumbersPracticeActivity.this, SubtractionCheckActivity.class);
                 break;
         }
         assert intent != null;

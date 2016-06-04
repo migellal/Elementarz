@@ -120,7 +120,43 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/infoTV"
+        android:text="@string/subtractionLbl"
+        android:id="@+id/subtractionTV"
         android:layout_below="@+id/addingClassIIIBtn"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/III_class"
+        android:onClick="onCLickClassBtn"
+        android:id="@+id/subtractionClassIIIBtn"
+        android:layout_below="@+id/subtractionTV"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/II_class"
+        android:onClick="onCLickClassBtn"
+        android:id="@+id/subtractionClassIIBtn"
+        android:layout_alignTop="@+id/subtractionClassIIIBtn"
+        android:layout_toEndOf="@+id/subtractionClassIIIBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/I_class"
+        android:onClick="onCLickClassBtn"
+        android:id="@+id/subtractionClassIBtn"
+        android:layout_alignTop="@+id/subtractionClassIIBtn"
+        android:layout_toEndOf="@+id/subtractionClassIIBtn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/infoTV"
+        android:layout_below="@+id/subtractionClassIIIBtn"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

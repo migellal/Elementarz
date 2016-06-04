@@ -89,4 +89,12 @@
         android:id="@+id/addingBTN"
         android:layout_below="@+id/compareBTN"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subtractionLbl"
+        android:id="@+id/subtractionBTN"
+        android:layout_below="@+id/compareBTN"
+        android:layout_toEndOf="@+id/timeET" />
 </RelativeLayout>

@@ -84,4 +84,22 @@
         android:layout_below="@+id/orderBtn"
         android:layout_toEndOf="@+id/choiceBtn" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subtractionLbl"
+        android:id="@+id/subtractionBtn"
+        android:onClick="onClickNumbers"
+        android:layout_below="@+id/addingBricksBtn"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subtractionCheckLbl"
+        android:id="@+id/subtractionCheckBtn"
+        android:onClick="onClickNumbers"
+        android:layout_below="@+id/addingCheckBtn"
+        android:layout_toEndOf="@+id/subtractionBtn" />
+
 </RelativeLayout>

@@ -31,6 +31,8 @@ import org.e_lementarz.elementarz.activities.numbers.ChoiceActivity;
 import org.e_lementarz.elementarz.activities.numbers.ChoiceCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.CompareActivity;
 import org.e_lementarz.elementarz.activities.numbers.CompareCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.SubtractionActivity;
+import org.e_lementarz.elementarz.activities.numbers.SubtractionCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersResultActivity;
 import org.e_lementarz.elementarz.common.Const;
 import org.e_lementarz.elementarz.common.interfaces.ElementarzNumbersHelper;
@@ -196,6 +198,10 @@ public abstract class ElementarzNumbersActivity extends AppCompatActivity implem
             return AddingActivity.class;
         else if (context.getClass().equals(AddingActivity.class))
             return AddingCheckActivity.class;
+        else if (context.getClass().equals(AddingCheckActivity.class))
+            return SubtractionActivity.class;
+        else if (context.getClass().equals(SubtractionActivity.class))
+            return SubtractionCheckActivity.class;
         else
             return MenuActivity.class;
     }

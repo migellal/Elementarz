@@ -14,6 +14,7 @@ import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.activities.numbers.AddingCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.ChoiceCheckActivity;
 import org.e_lementarz.elementarz.activities.numbers.CompareCheckActivity;
+import org.e_lementarz.elementarz.activities.numbers.SubtractionCheckActivity;
 import org.e_lementarz.elementarz.common.Const;
 
 import butterknife.Bind;
@@ -85,6 +86,21 @@ public class NumbersCustomActivity extends AppCompatActivity {
                 && badAnswerAmount.getText() != null && badAnswerAmount.getText().length()!=0
                 && timeAmount.getText() != null && timeAmount.getText().length()!=0) {
             Intent intent = new Intent(NumbersCustomActivity.this, AddingCheckActivity.class);
+            intent.putExtra(Const.CUSTOM, true);
+            intent.putExtra(Const.CUSTOM_TIME, Integer.parseInt(timeAmount.getText().toString()));
+            intent.putExtra(Const.CUSTOM_GOOD_ANSWER, Integer.parseInt(goodAnswerAmount.getText().toString()));
+            intent.putExtra(Const.CUSTOM_BAD_ANSWER, Integer.parseInt(badAnswerAmount.getText().toString()));
+            startActivity(intent);
+        } else
+            Toast.makeText(getApplicationContext(), "Some value is empty", Toast.LENGTH_LONG).show();
+    }
+
+    @OnClick(R.id.subtractionBTN)
+    void onClickSubtraction() {
+        if (goodAnswerAmount.getText() != null && goodAnswerAmount.getText().length()!=0
+                && badAnswerAmount.getText() != null && badAnswerAmount.getText().length()!=0
+                && timeAmount.getText() != null && timeAmount.getText().length()!=0) {
+            Intent intent = new Intent(NumbersCustomActivity.this, SubtractionCheckActivity.class);
             intent.putExtra(Const.CUSTOM, true);
             intent.putExtra(Const.CUSTOM_TIME, Integer.parseInt(timeAmount.getText().toString()));
             intent.putExtra(Const.CUSTOM_GOOD_ANSWER, Integer.parseInt(goodAnswerAmount.getText().toString()));
