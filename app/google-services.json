@@ -1,0 +1,45 @@
+{
+  "project_info": {
+    "project_number": "758968059168",
+    "firebase_url": "https://e-lementarz-mobile.firebaseio.com",
+    "project_id": "e-lementarz-mobile",
+    "storage_bucket": "e-lementarz-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758968059168:android:4b29b3f6cddec323",
+        "android_client_info": {
+          "package_name": "org.e_lementarz.e_lementarzmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758968059168-d18pb042ehkh15qb91krv0pp3kkae16o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIVLvy62f3eDv_ukzPDuyFi9KIvLkeCoY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-64335133-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
