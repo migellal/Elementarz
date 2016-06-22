@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import org.e_lementarz.elementarz.R;
 import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersActivity;
 import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersCustomActivity;
@@ -16,6 +18,8 @@ import org.e_lementarz.elementarz.activities.numbers.mainly.NumbersTestActivity;
 import org.e_lementarz.elementarz.activities.words.WordsActivity;
 
 public class MenuActivity extends AppCompatActivity {
+
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
